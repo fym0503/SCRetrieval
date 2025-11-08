@@ -1,0 +1,205 @@
+	Tissue Type	Dendritic cell marker
+0	Adipose tissue	HLA-DRA
+1	Adipose tissue	HLA-DRB1
+2	Airway	CD1C
+3	Airway	FCER1A
+4	Bladder	CD209
+5	Blood	CCR7
+9	Blood	CD163
+10	Blood	CD1C
+11	Blood	CD40
+12	Blood	CD80
+13	Blood	CD83
+14	Blood	CD86
+15	Blood	CLEC10A
+16	Blood	CLEC9A
+17	Blood	CST3
+18	Blood	CST3
+19	Blood	FCER1A
+20	Blood	FCER1A
+21	Blood	FLT3
+22	Blood	HLA-DPA1
+23	Blood	HLA-DQA1
+26	Blood	LILRA4
+28	Blood	LYZ
+32	Peripheral blood	CD1C
+33	Peripheral blood	CD1E
+34	Peripheral blood	CD80
+35	Peripheral blood	CD83
+36	Peripheral blood	CD86
+37	Peripheral blood	CLEC10A
+38	Peripheral blood	CLEC12A
+39	Peripheral blood	CLEC4C
+40	Peripheral blood	CLEC4C
+41	Peripheral blood	CST3
+42	Peripheral blood	CYBA
+43	Peripheral blood	FCER1A
+44	Peripheral blood	HSPA5
+45	Peripheral blood	IFI6
+46	Peripheral blood	IFITM3
+48	Peripheral blood	IL3RA
+49	Peripheral blood	IL3RA
+50	Peripheral blood	IRF7
+51	Peripheral blood	IRF8
+52	Peripheral blood	ISG15
+53	Peripheral blood	LILRA4
+54	Peripheral blood	LILRB4
+56	Peripheral blood	MZB1
+57	Peripheral blood	NRP1
+58	Peripheral blood	PLD4
+60	Peripheral blood	UBC
+63	Umbilical cord blood	CD34
+65	Blood vessel	CD1C
+67	Blood vessel	CLEC10A
+68	Blood vessel	FCER1A
+72	Bone marrow	CD40
+74	Bone marrow	CD80
+75	Bone marrow	CD86
+77	Bone marrow	IRF7
+78	Bone marrow	IRF8
+81	Bone marrow	PLAC8
+82	Brain	FCER1A
+83	Cerebrospinal fluid	CD1C
+84	Cerebrospinal fluid	CLEC10A
+85	Cerebrospinal fluid	FCER1A
+91	Milk	NR4A3
+92	Milk	REL
+93	Decidua	CD74
+94	Decidua	CPVL
+95	Decidua	HLA-DPB1
+96	Decidua	HLA-DQA1
+97	Decidua	HLA-DQB1
+98	Decidua	HLA-DRA
+99	Decidua	LGALS2
+100	Decidua	PPT1
+109	Epithelium	BATF3
+110	Epithelium	CD207
+111	Epithelium	IL3RA
+112	Epithelium	LILRA4
+113	Epithelium	PTCRA
+114	Epithelium	TOP2A
+117	Intestine	CCR7
+121	Intestine	CD40
+123	Intestine	CD86
+125	Intestine	LAMP3
+128	Rectum	CLEC10A
+129	Rectum	HLA-DRA
+130	Rectum	HLA-DRB1
+131	Kidney	CD1C
+133	Kidney	CD1E
+134	Kidney	CLEC10A
+135	Kidney	FCER1A
+136	Kidney	FLT3
+137	Kidney	HLA-DPB1
+138	Kidney	HLA-DRB1
+140	Skin	LAMP3
+141	Skin	TOP2A
+142	Skin	UBE2C
+143	Fetal liver	CCR2
+145	Fetal liver	CD1C
+146	Fetal liver	HLA-DRA
+150	Liver	CD14
+154	Liver	CD68
+155	Liver	CD80
+156	Liver	CD83
+159	Bronchoalveolar system	CD1A
+160	Bronchoalveolar system	CLEC9A
+161	Lung	CCL20
+162	Lung	CCR6
+167	Lung	CD1C
+168	Lung	CD209
+171	Lung	CD74
+172	Lung	CD83
+173	Lung	FCER1G
+174	Lung	HLA-DRA
+176	Lung	IL3RA
+177	Lung	IRF7
+178	Lung	LAMP3
+183	Lung	TYROBP
+184	Lymph	ITGAX
+185	Olfactory neuroepithelium	CD1C
+186	Ovary	CD1C
+187	Ovary	CD207
+188	Ovary	CLEC9A
+191	Pancreas	CD1C
+192	Pancreas	CD34
+193	Pancreas	FCER1A
+195	Peritoneal fluid	CD40
+197	Placenta	CD14
+198	Placenta	CD52
+199	Placenta	CD83
+200	Placenta	CD86
+201	Epithelium	AIF1
+203	Epithelium	CD14
+205	Epithelium	CD209
+206	Epithelium	CD40
+207	Epithelium	CD80
+208	Epithelium	CD86
+209	Epithelium	CIITA
+210	Epithelium	LAMP3
+213	Epithelium	SIRPA
+214	Lymphoid tissue	CD1C
+217	Scalp	CD209
+218	Scalp	CD86
+219	Skin	ATP1B1
+221	Skin	CCL17
+224	Skin	CD14
+225	Skin	CD1A
+226	Skin	CD1C
+229	Skin	CD4
+230	Skin	CD68
+232	Skin	GZMB
+233	Skin	IL3RA
+234	Skin	IRF8
+235	Skin	ITGAX
+236	Skin	LILRA4
+239	Skin	NRP1
+240	Skin	THBD
+241	Skin	XCR1
+243	Spleen	CCR7
+246	Spleen	CD1C
+247	Spleen	CLEC10A
+248	Spleen	CLEC10A
+249	Spleen	CLEC9A
+250	Spleen	SIGLEC6
+251	Spleen	TCF4
+252	Spleen	XCR1
+254	Malignant pleural effusion	CD1C
+255	Malignant pleural effusion	CLEC10A
+256	Malignant pleural effusion	FCGR1A
+257	Fetal thymus	BATF3
+258	Fetal thymus	CLEC9A
+261	Thymus	CD80
+262	Thymus	CD83
+263	Thymus	CLEC10A
+264	Thymus	CLEC9A
+268	Tonsil	CD4
+269	Tonsil	CR1
+270	Tonsil	CR2
+271	Tonsil	CXCL13
+272	Tonsil	MFGE8
+273	Tonsil	VCAM1
+274	Molar	CD1C
+275	Undefined	ADAM19
+282	Undefined	CD14
+287	Undefined	CD1C
+288	Undefined	CD209
+290	Undefined	CD302
+291	Undefined	CD33
+293	Undefined	CD80
+294	Undefined	CD80
+295	Undefined	CD83
+296	Undefined	CD83
+297	Undefined	CD86
+298	Undefined	CD86
+301	Undefined	CST3
+303	Undefined	FCER1A
+305	Undefined	HLA-DRA
+308	Undefined	IRF1
+309	Undefined	IRF7
+310	Undefined	IRF8
+311	Undefined	LYZ
+316	Undefined	TLR7
+317	Undefined	TLR9
+319	Undefined	TYROBP
+320	Ectocervix	HLA-DRA

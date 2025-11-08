@@ -1,0 +1,325 @@
+	Tissue Type	Nature killer cell marker
+6	Adipose tissue	GNLY
+7	Adipose tissue	NKG7
+9	Airway	NCAM1
+21	Blood	CD160
+23	Blood	CD19
+24	Blood	CD2
+25	Blood	CD247
+29	Blood	CD3D
+30	Blood	CD3E
+31	Blood	CD4
+32	Blood	CD44
+39	Blood	CD69
+40	Blood	CD7
+41	Blood	CD79B
+43	Blood	CD8A
+45	Blood	CD96
+47	Blood	DUSP1
+48	Blood	FCGR3A
+49	Blood	FGFBP2
+50	Blood	FOS
+51	Blood	GNLY
+52	Blood	GNLY
+53	Blood	GZMB
+54	Blood	GZMK
+55	Blood	GZMK
+58	Blood	IL2RB
+59	Blood	IL7R
+61	Blood	JUN
+63	Blood	KLRB1
+64	Blood	KLRC1
+65	Blood	KLRC2
+66	Blood	KLRF1
+67	Blood	MKI67
+68	Blood	NCAM1
+69	Blood	NCR1
+70	Blood	NCR1
+73	Blood	NKG7
+74	Blood	NKG7
+78	Blood	SELL
+79	Blood	SPON2
+81	Blood	XCL1
+82	Blood	XCL1
+83	Blood	XCL2
+84	Peripheral blood	CCL3
+85	Peripheral blood	CCL4
+86	Peripheral blood	CCL5
+88	Peripheral blood	CD160
+89	Peripheral blood	CD160
+91	Peripheral blood	CD247
+92	Peripheral blood	CD247
+96	Peripheral blood	CD38
+97	Peripheral blood	CD3D
+98	Peripheral blood	CD3E
+99	Peripheral blood	CD3G
+103	Peripheral blood	CD52
+108	Peripheral blood	CD69
+109	Peripheral blood	CD7
+111	Peripheral blood	CHST2
+112	Peripheral blood	CX3CR1
+113	Peripheral blood	CXCR6
+114	Peripheral blood	CXXC5
+115	Peripheral blood	FCER1G
+116	Peripheral blood	FCGR3A
+117	Peripheral blood	FCGR3A
+118	Peripheral blood	FCGR3B
+119	Peripheral blood	FOS
+120	Peripheral blood	GNLY
+121	Peripheral blood	GNLY
+122	Peripheral blood	GZMB
+123	Peripheral blood	GZMB
+124	Peripheral blood	IL18RAP
+125	Peripheral blood	IL2RB
+126	Peripheral blood	KIR2DL1
+128	Peripheral blood	KLRB1
+129	Peripheral blood	KLRC1
+130	Peripheral blood	KLRC1
+131	Peripheral blood	KLRD1
+132	Peripheral blood	KLRD1
+133	Peripheral blood	KLRF1
+134	Peripheral blood	KLRF1
+135	Peripheral blood	KLRK1
+137	Peripheral blood	NCAM1
+138	Peripheral blood	NCAM1
+142	Peripheral blood	NKG7
+143	Peripheral blood	NKG7
+146	Peripheral blood	PRSS23
+147	Peripheral blood	SELL
+148	Peripheral blood	SPON2
+149	Peripheral blood	TRAC
+150	Peripheral blood	TRDC
+151	Peripheral blood	TRGC1
+152	Peripheral blood	TRGC2
+153	Peripheral blood	TYROBP
+154	Peripheral blood	ZBTB16
+155	Peripheral blood	ZFP36
+158	Venous blood	KLRD1
+159	Venous blood	NCR3
+160	Venous blood	NKG7
+166	Bone marrow	CASP5
+170	Bone marrow	CD34
+171	Bone marrow	CD38
+173	Bone marrow	CX3CR1
+174	Bone marrow	CXCR4
+175	Bone marrow	FCGR3A
+176	Bone marrow	GNLY
+177	Bone marrow	GSG1
+178	Bone marrow	IL18RAP
+179	Bone marrow	KLRB1
+180	Bone marrow	KLRD1
+181	Bone marrow	KLRF1
+182	Bone marrow	L1TD1
+183	Bone marrow	NCAM1
+184	Bone marrow	NCR1
+185	Bone marrow	NKG7
+186	Bone marrow	NMUR1
+187	Bone marrow	PTGDR
+188	Bone marrow	TBX21
+189	Bone marrow	TP53TG5
+190	Bone marrow	XCL1
+192	Brain	DOCK2
+193	Brain	GNLY
+194	Brain	GNLY
+195	Brain	GZMB
+196	Brain	ICAM1
+197	Brain	KIR2DL1
+198	Brain	KIR2DL3
+200	Brain	SAMD3
+203	Breast	KIR2DL4
+204	Breast	NKG7
+205	Decidua	CD7
+206	Decidua	CHST12
+207	Decidua	CTSW
+208	Decidua	GNLY
+209	Decidua	GZMB
+210	Decidua	IL2RB
+211	Decidua	KIR2DL3
+212	Decidua	KLRC1
+213	Decidua	TESC
+214	Decidua	TMIGD2
+215	Decidua	TNFRSF18
+216	Decidua	TRDC
+217	Decidua	XCL1
+218	Decidua	XCL2
+219	Endometrium	GNLY
+220	Endometrium	NKG7
+221	Epidermis	KIR2DL4
+222	Epidermis	KLRC1
+223	Esophagus	NCAM1
+224	Esophagus	NCR1
+225	Choroid	CD2
+226	Eye	GNLY
+227	Eye	IL7R
+229	Fetus	CD7
+239	Intestine	EOMES
+241	Intestine	NCAM1
+246	Kidney	GNLY
+248	Kidney	IFNG
+250	Kidney	IL32
+251	Kidney	KIR2DL3
+252	Kidney	KLRB1
+253	Kidney	KLRD1
+257	Kidney	NCAM1
+259	Kidney	NKG7
+261	Kidney	PRF1
+263	Fetal liver	CD3D
+264	Fetal liver	CD3E
+274	Liver	CD69
+276	Liver	CX3CR1
+277	Liver	CXCR6
+278	Liver	FCGR3A
+280	Liver	GNLY
+281	Liver	KIR2DL1
+283	Liver	KLRF1
+286	Liver	NKG7
+288	Bronchial vessel	KLRD1
+289	Bronchial vessel	NKG7
+290	Bronchial vessel	TYROBP
+292	Lung	CD160
+294	Lung	FASLG
+295	Lung	FCGR3A
+296	Lung	GNLY
+298	Lung	HIST1H4C
+299	Lung	HMGB2
+300	Lung	KIR2DL4
+301	Lung	KLRB1
+302	Lung	KLRC1
+303	Lung	KLRD1
+304	Lung	KLRF1
+305	Lung	NCAM1
+306	Lung	NCR1
+307	Lung	NKG7
+309	Lung	STMN1
+310	Lung	TYROBP
+311	Lymph	CD2
+314	Lymph	NKG7
+318	Nasal polyp	CD160
+319	Nasal polyp	CD96
+320	Nasal polyp	GZMA
+321	Nasal polyp	GZMB
+322	Nasal polyp	GZMH
+323	Nasal polyp	NCR3
+324	Nasal polyp	ZNF683
+325	Nose	KLRD1
+327	Olfactory neuroepithelium	CX3CR1
+329	Olfactory neuroepithelium	FGFBP2
+330	Ovary	KLRC1
+331	Ovary	KLRC3
+333	Ovary	NCR1
+334	Oviduct	CD3E
+342	Peritoneal fluid	KIR2DL3
+346	Salivary gland	KLRF1
+347	Salivary gland	NCR3
+350	Scalp	CD4
+353	Scalp	FASLG
+354	Scalp	GZMB
+355	Scalp	LTB
+356	Scalp	RAX
+357	Skin	CCL19
+358	Skin	CCL4
+359	Skin	CCL5
+360	Skin	CCR7
+361	Skin	CD14
+362	Skin	CD163
+363	Skin	CD3D
+364	Skin	CD4
+367	Skin	CD74
+368	Skin	CD8A
+370	Skin	CX3CR1
+371	Skin	EOMES
+372	Skin	FCER1G
+373	Skin	FCGR3A
+375	Skin	GNLY
+376	Skin	GZMB
+377	Skin	KLRB1
+378	Skin	KLRK1
+379	Skin	NCAM1
+380	Skin	NCR1
+381	Skin	NCR1
+382	Skin	NCR2
+383	Skin	NKG7
+384	Skin	STYK1
+387	Skin	TNFRSF18
+388	Skin	TRDC
+389	Skin	XCL1
+390	Skin	XCL2
+391	Soft tissue	CD160
+392	Soft tissue	KIR2DL1
+393	Soft tissue	KIR2DL3
+394	Soft tissue	KIR2DL4
+395	Soft tissue	KIR3DL1
+397	Soft tissue	NCR1
+398	Soft tissue	PTGDR
+399	Soft tissue	SH2D1B
+400	Spleen	CCL4
+401	Spleen	CCL5
+402	Spleen	CCR7
+404	Spleen	CD160
+405	Spleen	CD247
+411	Spleen	CD69
+412	Spleen	CD7
+414	Spleen	CST7
+415	Spleen	CX3CR1
+416	Spleen	CXCR3
+417	Spleen	CXCR5
+418	Spleen	CXCR6
+419	Spleen	FCGR3A
+420	Spleen	GNLY
+421	Spleen	GZMB
+422	Spleen	GZMK
+424	Spleen	KLRD1
+425	Spleen	KLRF1
+426	Spleen	NCAM1
+427	Spleen	NCR1
+430	Spleen	NKG7
+432	Spleen	PRF1
+435	Testis	GZMA
+436	Testis	GZMB
+437	Testis	GZMH
+438	Testis	GZMK
+439	Testis	GZMM
+440	Testis	KLRB1
+441	Testis	KLRG1
+442	Testis	KLRK1
+443	Malignant pleural effusion	GNLY
+444	Malignant pleural effusion	KLRD1
+445	Malignant pleural effusion	NCR1
+446	Malignant pleural effusion	NKG7
+463	Undefined	CD160
+469	Undefined	CD2
+473	Undefined	CD226
+475	Undefined	CD244
+476	Undefined	CD27
+477	Undefined	CD27
+486	Undefined	CD34
+487	Undefined	CD38
+488	Undefined	CD3D
+489	Undefined	CD4
+491	Undefined	CD44
+499	Undefined	CD68
+500	Undefined	CD69
+501	Undefined	CD69
+502	Undefined	CD7
+503	Undefined	CD7
+506	Undefined	CD81
+509	Undefined	CXCR3
+513	Undefined	EOMES
+515	Undefined	FLT3
+516	Undefined	GATA3
+517	Undefined	GNLY
+520	Undefined	GZMB
+521	Undefined	GZMB
+523	Undefined	ID2
+524	Undefined	IFNG
+532	Undefined	KLRC1
+533	Undefined	KLRG1
+534	Undefined	KLRG1
+539	Undefined	NKG7
+544	Undefined	PRF1
+545	Undefined	PTPRC
+547	Undefined	RUNX1
+550	Undefined	TIGIT
+551	Undefined	TOX
+552	Undefined	TYROBP
+554	Undefined	ZAP70

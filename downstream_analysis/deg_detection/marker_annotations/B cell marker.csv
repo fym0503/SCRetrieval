@@ -1,0 +1,1030 @@
+	Tissue Type	B cell marker
+0	Intestine	CD19
+1	Adipose tissue	IGHG3
+2	Adipose tissue	IGKC
+3	Airway	CD19
+4	Airway	MS4A1
+5	Bladder	CD79A
+6	Bladder	MZB1
+7	Blood	ADAM28
+11	Blood	B2M
+12	Blood	BANK1
+13	Blood	BCL6
+15	Blood	CCR7
+18	Blood	CD14
+19	Blood	CD19
+20	Blood	CD19
+21	Blood	CD19
+22	Blood	CD1C
+24	Blood	CD24
+26	Blood	CD27
+27	Blood	CD28
+29	Blood	CD38
+32	Blood	CD5
+33	Blood	CD52
+36	Blood	CD74
+38	Blood	CD79A
+39	Blood	CD79A
+40	Blood	CD79B
+41	Blood	CD86
+42	Blood	CD99
+43	Blood	CDC20
+44	Blood	CDK1
+46	Blood	CXCR4
+47	Blood	FCER2
+50	Blood	HLA-DRA
+51	Blood	IGHA1
+52	Blood	IGHA2
+53	Blood	IGHD
+54	Blood	IGHG1
+55	Blood	IGHG2
+56	Blood	IGHG4
+57	Blood	IGHM
+59	Blood	JUNB
+60	Blood	MKI67
+61	Blood	MME
+62	Blood	MS4A1
+63	Blood	MS4A1
+64	Blood	NR4A1
+65	Blood	PMAIP1
+66	Blood	TCF4
+67	Blood	TCL1A
+68	Blood	VPREB3
+69	Peripheral blood	AHNAK
+70	Peripheral blood	AIM2
+71	Peripheral blood	BACH2
+72	Peripheral blood	BCL11A
+73	Peripheral blood	BLNK
+74	Peripheral blood	CALR
+77	Peripheral blood	CD19
+78	Peripheral blood	CD19
+82	Peripheral blood	CD22
+83	Peripheral blood	CD24
+85	Peripheral blood	CD27
+86	Peripheral blood	CD37
+87	Peripheral blood	CD38
+88	Peripheral blood	CD40
+90	Peripheral blood	CD5
+91	Peripheral blood	CD72
+92	Peripheral blood	CD74
+94	Peripheral blood	CD79A
+95	Peripheral blood	CD79A
+96	Peripheral blood	CD79B
+97	Peripheral blood	CD79B
+98	Peripheral blood	CD81
+100	Peripheral blood	CR2
+101	Peripheral blood	FCER2
+102	Peripheral blood	FCGR2A
+103	Peripheral blood	FCRL1
+104	Peripheral blood	FCRLA
+105	Peripheral blood	HLA-A
+106	Peripheral blood	HLA-DPB1
+108	Peripheral blood	IGHA1
+109	Peripheral blood	IGHD
+110	Peripheral blood	IGHG2
+111	Peripheral blood	IGHM
+113	Peripheral blood	IGKC
+115	Peripheral blood	IL4R
+116	Peripheral blood	ITGB1
+117	Peripheral blood	JCHAIN
+119	Peripheral blood	LILRA4
+120	Peripheral blood	MS4A1
+121	Peripheral blood	MS4A1
+122	Peripheral blood	MZB1
+123	Peripheral blood	NFKBIA
+124	Peripheral blood	PAX5
+125	Peripheral blood	PLPP5
+126	Peripheral blood	SPIB
+127	Peripheral blood	SWAP70
+129	Peripheral blood	TCL1A
+130	Peripheral blood	TNFRSF13C
+131	Peripheral blood	TNFRSF17
+132	Peripheral blood	XBP1
+133	Peripheral blood	YBX3
+134	Peripheral blood	ZAP70
+137	Plasma	CD19
+138	Plasma	IL10
+139	Plasma	IL6
+141	Serum	IGHG1
+142	Venous blood	CD19
+143	Venous blood	CD79A
+144	Venous blood	CD79B
+145	Blood vessel	CD19
+146	Blood vessel	CD22
+147	Blood vessel	CD79A
+148	Blood vessel	CD79B
+149	Blood vessel	FCER2
+151	Bone	CD19
+152	Bone marrow	BCL2
+153	Bone marrow	BCL6
+154	Bone marrow	BLK
+155	Bone marrow	BLNK
+157	Bone marrow	CD19
+158	Bone marrow	CD19
+164	Bone marrow	CD24
+165	Bone marrow	CD24
+166	Bone marrow	CD27
+167	Bone marrow	CD27
+168	Bone marrow	CD34
+169	Bone marrow	CD38
+170	Bone marrow	CD38
+171	Bone marrow	CD40
+174	Bone marrow	CD5
+175	Bone marrow	CD52
+176	Bone marrow	CD72
+177	Bone marrow	CD79A
+178	Bone marrow	CD79B
+179	Bone marrow	EIF4EBP1
+182	Bone marrow	HLA-DRA
+183	Bone marrow	IGHA1
+184	Bone marrow	IGHG1
+185	Bone marrow	IGKC
+188	Bone marrow	IL7R
+189	Bone marrow	LMO2
+191	Bone marrow	MS4A1
+192	Bone marrow	MS4A1
+193	Bone marrow	PAX5
+194	Bone marrow	RAG1
+195	Bone marrow	RAG2
+196	Bone marrow	TNFRSF13C
+198	Brain	CD19
+200	Brain	CD79A
+201	Brain	MS4A1
+202	Brain	MS4A1
+204	Cerebrospinal fluid	CD27
+207	Cerebrospinal fluid	CD69
+208	Cerebrospinal fluid	CXCR3
+209	Breast	CD19
+210	Breast	CD79A
+211	Milk	CCDC50
+212	Milk	SEL1L3
+213	Milk	TCF4
+214	Decidua	CD79A
+215	Decidua	CD79B
+216	Decidua	MS4A1
+217	Endometrium	CD79A
+218	Esophagus	CD19
+219	Esophagus	CD27
+220	Esophagus	CD79A
+221	Esophagus	FCER2
+222	Esophagus	IGHD
+223	Esophagus	TCL1A
+224	Esophagus	TNFRSF13B
+226	Choroid	CD79A
+227	Retinal pigment epithelium	CD79A
+228	Gall bladder	CD79A
+229	Gall bladder	MZB1
+230	Heart	BCL11B
+231	Colon	AICDA
+232	Colon	CD19
+233	Colon	HLA-DOB
+234	Colon	IGHA1
+235	Colon	MZB1
+236	Colon	SELL
+237	Intestine	CD19
+239	Intestine	CD22
+241	Intestine	MEF2B
+242	Intestine	MS4A1
+246	Kidney	ABCB4
+247	Kidney	ABCB9
+248	Kidney	ABHD10
+249	Kidney	ACAD10
+250	Kidney	ACBD3
+251	Kidney	ACP5
+252	Kidney	ACSM2A
+253	Kidney	ACSM2B
+254	Kidney	ADAM19
+255	Kidney	ADAM28
+256	Kidney	AFF3
+257	Kidney	AHCYL1
+258	Kidney	AIDA
+259	Kidney	AIM2
+260	Kidney	AKAP12
+261	Kidney	AKAP8L
+262	Kidney	AKR1C1
+263	Kidney	AL928768.3
+264	Kidney	ALG14
+265	Kidney	ALG8
+266	Kidney	ALKBH7
+267	Kidney	ALPL
+268	Kidney	AMN1
+269	Kidney	AMT
+270	Kidney	ANAPC5
+271	Kidney	ANK2
+272	Kidney	ANKHD1
+273	Kidney	ANKRD13A
+274	Kidney	AP1B1
+275	Kidney	APOM
+276	Kidney	APPL1
+277	Kidney	AQP7
+278	Kidney	ARHGAP24
+279	Kidney	ARID5B
+280	Kidney	ARL3
+281	Kidney	ARSA
+282	Kidney	ASB13
+283	Kidney	ASB15
+284	Kidney	ATF7IP2
+285	Kidney	ATG101
+286	Kidney	ATP2A3
+287	Kidney	ATP2B1
+288	Kidney	ATP6V0A1
+289	Kidney	ATRX
+290	Kidney	AVP
+291	Kidney	B3GALT6
+292	Kidney	BACH2
+293	Kidney	BAK1
+294	Kidney	BANK1
+295	Kidney	BASP1
+296	Kidney	BCAS4
+297	Kidney	BCL11A
+298	Kidney	BCL2L11
+299	Kidney	BCL7A
+300	Kidney	BEND5
+301	Kidney	BET1L
+302	Kidney	BHLHE41
+303	Kidney	BICD1
+304	Kidney	BIRC3
+305	Kidney	BLK
+306	Kidney	BLNK
+307	Kidney	BMP2K
+308	Kidney	BMP8B
+309	Kidney	BTK
+310	Kidney	BTLA
+311	Kidney	BTNL9
+312	Kidney	C11orf24
+313	Kidney	C12orf42
+314	Kidney	C15orf57
+315	Kidney	C15orf65
+316	Kidney	C16orf74
+317	Kidney	C16orf87
+318	Kidney	C1GALT1
+319	Kidney	C1orf132
+320	Kidney	C1orf186
+321	Kidney	C2orf88
+322	Kidney	C6orf48
+323	Kidney	CA2
+324	Kidney	CACNB4
+325	Kidney	CALB1
+326	Kidney	CAMK1D
+327	Kidney	CAPG
+328	Kidney	CASP2
+329	Kidney	CAV1
+330	Kidney	CBWD5
+331	Kidney	CBX7
+332	Kidney	CCDC191
+333	Kidney	CCDC50
+334	Kidney	CCDC81
+335	Kidney	CCNB1
+336	Kidney	CCNB1IP1
+337	Kidney	CCNI
+338	Kidney	CCR10
+339	Kidney	CCR7
+340	Kidney	CCS
+341	Kidney	CD180
+342	Kidney	CD19
+344	Kidney	CD19
+346	Kidney	CD200
+348	Kidney	CD22
+349	Kidney	CD24
+350	Kidney	CD27
+351	Kidney	CD27
+352	Kidney	CD37
+353	Kidney	CD40
+354	Kidney	CD40
+355	Kidney	CD52
+356	Kidney	CD74
+357	Kidney	CD79A
+359	Kidney	CD79A
+360	Kidney	CD79B
+362	Kidney	CD79B
+363	Kidney	CD82
+364	Kidney	CD83
+365	Kidney	CDCA7L
+366	Kidney	CDHR5
+367	Kidney	CDK14
+368	Kidney	CENPM
+369	Kidney	CEP120
+370	Kidney	CEP295
+371	Kidney	CFI
+372	Kidney	CH17-353B19.1
+373	Kidney	CHAC2
+374	Kidney	CHMP7
+375	Kidney	CHPF
+376	Kidney	CHPT1
+377	Kidney	CHTF8
+378	Kidney	CIITA
+379	Kidney	CINP
+380	Kidney	CKAP4
+381	Kidney	CLDN10
+382	Kidney	CLECL1
+383	Kidney	CLPTM1L
+384	Kidney	CNKSR1
+385	Kidney	CNPY3
+386	Kidney	CNR1
+387	Kidney	CNR2
+388	Kidney	COA5
+389	Kidney	COBLL1
+390	Kidney	COCH
+391	Kidney	COL19A1
+392	Kidney	COL4A4
+393	Kidney	COQ4
+394	Kidney	CPNE5
+395	Kidney	CR1
+396	Kidney	CSNK1E
+397	Kidney	CTA-293F17.1
+398	Kidney	CTGF
+399	Kidney	CTSH
+400	Kidney	CTXN3
+401	Kidney	CUL4B
+402	Kidney	CXCR4
+403	Kidney	CXCR5
+404	Kidney	CXXC5
+405	Kidney	CYB561A3
+406	Kidney	CYB5RL
+407	Kidney	CYFIP2
+408	Kidney	CYSLTR1
+409	Kidney	DAAM1
+410	Kidney	DAPP1
+411	Kidney	DAXX
+412	Kidney	DDAH2
+413	Kidney	DDC
+414	Kidney	DDX11
+415	Kidney	DDX3X
+416	Kidney	DENND5B
+417	Kidney	DERL3
+418	Kidney	DGKD
+419	Kidney	DHTKD1
+420	Kidney	DHX29
+421	Kidney	DLAT
+422	Kidney	DMTN
+423	Kidney	DNAJC10
+424	Kidney	DNAJC5B
+425	Kidney	DNAJC9
+426	Kidney	DNAL1
+427	Kidney	DPAGT1
+428	Kidney	DPY30
+429	Kidney	DRAM2
+430	Kidney	DUSP22
+431	Kidney	E2F5
+433	Kidney	EBF1
+434	Kidney	EBLN3
+435	Kidney	ECE1
+436	Kidney	ECSIT
+437	Kidney	EEF1B2
+438	Kidney	EEF1G
+439	Kidney	EFHC1
+440	Kidney	EGFL7
+441	Kidney	EGLN1
+442	Kidney	EHHADH
+443	Kidney	EHMT1
+444	Kidney	EIF1AY
+445	Kidney	EIF3F
+446	Kidney	EIF4B
+447	Kidney	EMC9
+448	Kidney	ENAM
+449	Kidney	EPN2
+450	Kidney	ERN2
+451	Kidney	ERO1B
+452	Kidney	EVI2B
+453	Kidney	EXOSC10
+454	Kidney	EZR
+455	Kidney	FA2H
+456	Kidney	FAM111B
+457	Kidney	FAM129C
+458	Kidney	FAM159A
+459	Kidney	FAM177B
+460	Kidney	FAM213A
+461	Kidney	FAM27C
+462	Kidney	FAM3C
+463	Kidney	FBL
+464	Kidney	FBXO3
+465	Kidney	FCER2
+466	Kidney	FCGR2B
+467	Kidney	FCHSD2
+469	Kidney	FCMR
+471	Kidney	FCRL1
+472	Kidney	FCRL2
+473	Kidney	FCRL5
+474	Kidney	FCRLA
+475	Kidney	FFAR1
+476	Kidney	FGB
+477	Kidney	FGD2
+478	Kidney	FUT8
+479	Kidney	GAPT
+480	Kidney	GEMIN7
+481	Kidney	GEMIN8
+482	Kidney	GEN1
+483	Kidney	GGA2
+484	Kidney	GH1
+485	Kidney	GLDC
+486	Kidney	GLO1
+487	Kidney	GLTSCR2
+488	Kidney	GMDS
+489	Kidney	GMPPB
+490	Kidney	GNB5
+491	Kidney	GNG3
+492	Kidney	GNG7
+493	Kidney	GOLPH3L
+494	Kidney	GPC3
+495	Kidney	GPD1
+496	Kidney	GPR160
+497	Kidney	GPR183
+498	Kidney	GPRC5D
+499	Kidney	GRAP
+500	Kidney	GRB2
+501	Kidney	GTF2H5
+502	Kidney	GUCD1
+503	Kidney	HADHB
+504	Kidney	HCCS
+505	Kidney	HDAC9
+506	Kidney	HHEX
+507	Kidney	HIST1H3J
+508	Kidney	HIST1H4C
+509	Kidney	HLA-DMA
+510	Kidney	HLA-DMB
+511	Kidney	HLA-DOB
+512	Kidney	HLA-DPA1
+513	Kidney	HLA-DPB1
+514	Kidney	HLA-DPB1
+515	Kidney	HLA-DQA1
+516	Kidney	HLA-DQB1
+517	Kidney	HLA-DQB2
+518	Kidney	HLA-DRA
+519	Kidney	HLA-DRA
+520	Kidney	HLA-DRB1
+521	Kidney	HLA-DRB5
+522	Kidney	HLA-E
+523	Kidney	HMGB3
+524	Kidney	HOXB6
+525	Kidney	HSP90AB1
+526	Kidney	HSPA13
+527	Kidney	HVCN1
+528	Kidney	HYI
+529	Kidney	IARS
+530	Kidney	ID3
+531	Kidney	IFI27L1
+532	Kidney	IFNG-AS1
+533	Kidney	IFNGR2
+534	Kidney	IFRD2
+535	Kidney	IFT57
+536	Kidney	IGF1
+537	Kidney	IGFBP4
+538	Kidney	IGHA1
+539	Kidney	IGHA2
+540	Kidney	IGHD
+541	Kidney	IGHE
+542	Kidney	IGHG1
+543	Kidney	IGHG2
+544	Kidney	IGHG2
+545	Kidney	IGHG3
+546	Kidney	IGHG4
+547	Kidney	IGHGP
+548	Kidney	IGHM
+549	Kidney	IGHM
+550	Kidney	IGHV3-15
+551	Kidney	IGHV3-7
+552	Kidney	IGHV6-1
+553	Kidney	IGKC
+554	Kidney	IGKV1-12
+555	Kidney	IGKV1-5
+556	Kidney	IGKV3-20
+557	Kidney	IGKV3D-11
+558	Kidney	IGKV3D-20
+559	Kidney	IGKV4-1
+560	Kidney	IGLC2
+561	Kidney	IGLC3
+562	Kidney	IGLC5
+563	Kidney	IGLC6
+564	Kidney	IGLC7
+565	Kidney	IGLL1
+566	Kidney	IGLL5
+567	Kidney	IGLV3-1
+568	Kidney	IGLV4-69
+569	Kidney	IGLV6-57
+570	Kidney	IGLV7-43
+571	Kidney	IL13RA1
+572	Kidney	IL2RA
+573	Kidney	IL7
+574	Kidney	ING5
+575	Kidney	IRF8
+576	Kidney	ISG20
+577	Kidney	ITM2C
+578	Kidney	ITM2C
+579	Kidney	ITSN2
+580	Kidney	JCHAIN
+581	Kidney	JUP
+582	Kidney	KCNK5
+583	Kidney	KCNN3
+584	Kidney	KCNN4
+585	Kidney	KDM5D
+586	Kidney	KHDRBS2
+587	Kidney	KIAA0125
+588	Kidney	KIAA0226L
+589	Kidney	KIF12
+590	Kidney	KIZ
+591	Kidney	KLF13
+592	Kidney	KLHL14
+593	Kidney	KLHL5
+594	Kidney	LAGE3
+595	Kidney	LAMC1
+596	Kidney	LAMP5
+597	Kidney	LAPTM5
+598	Kidney	LARP6
+599	Kidney	LDHD
+600	Kidney	LEMD3
+601	Kidney	LGALS3BP
+602	Kidney	LGMN
+603	Kidney	LGR4
+604	Kidney	LHPP
+605	Kidney	LRMP
+606	Kidney	LRRC16A
+607	Kidney	LRRC4C
+608	Kidney	LRWD1
+609	Kidney	LSM12
+610	Kidney	LSM7
+611	Kidney	LTB
+613	Kidney	LY86
+614	Kidney	LY9
+615	Kidney	LYL1
+616	Kidney	LYPLA1
+617	Kidney	LYPLAL1
+618	Kidney	LYRM4
+619	Kidney	MACROD2
+620	Kidney	MAN1A1
+622	Kidney	MBD4
+623	Kidney	MCEE
+624	Kidney	MED22
+625	Kidney	MED31
+626	Kidney	MEF2A
+627	Kidney	MEF2C
+628	Kidney	METTL17
+629	Kidney	METTL25
+630	Kidney	METTL8
+631	Kidney	MICAL3
+632	Kidney	MIXL1
+633	Kidney	MLK7-AS1
+634	Kidney	MMP7
+635	Kidney	MOB3B
+636	Kidney	MORN2
+637	Kidney	MOXD1
+638	Kidney	MPZL1
+639	Kidney	MRPL24
+640	Kidney	MRPS16
+641	Kidney	MRPS2
+642	Kidney	MRPS25
+643	Kidney	MRPS27
+644	Kidney	MS4A1
+646	Kidney	MS4A1
+647	Kidney	MSL3
+648	Kidney	MT1E
+649	Kidney	MTCH2
+650	Kidney	MTHFD2L
+651	Kidney	MYBL2
+652	Kidney	MYC
+653	Kidney	MYCBP2
+654	Kidney	MYO1D
+655	Kidney	MZB1
+656	Kidney	MZB1
+657	Kidney	NAA50
+658	Kidney	NAP1L1
+659	Kidney	NAPSA
+660	Kidney	NBEAL1
+661	Kidney	NCF1
+662	Kidney	NCF4
+663	Kidney	NCOA3
+664	Kidney	NDUFAF6
+665	Kidney	NEK6
+666	Kidney	NEK8
+667	Kidney	NEK9
+668	Kidney	NFKB2
+669	Kidney	NFKBID
+670	Kidney	NFKBIE
+671	Kidney	NGLY1
+672	Kidney	NIFK
+673	Kidney	NIPAL4
+674	Kidney	NKX6-2
+675	Kidney	NME4
+676	Kidney	NME7
+677	Kidney	NOC3L
+678	Kidney	NPIPB15
+679	Kidney	NR3C2
+680	Kidney	NSA2
+681	Kidney	NT5DC2
+682	Kidney	NT5E
+683	Kidney	NUDT6
+684	Kidney	NUP88
+685	Kidney	NUS1
+686	Kidney	NXPH4
+687	Kidney	OAS1
+688	Kidney	ODC1
+689	Kidney	ORAI2
+690	Kidney	ORC4
+691	Kidney	OSBPL10
+692	Kidney	OSBPL10-AS1
+693	Kidney	OXCT1
+694	Kidney	P2RX5
+695	Kidney	PARP1
+696	Kidney	PARP14
+697	Kidney	PAWR
+698	Kidney	PAX5
+699	Kidney	PCDH9
+700	Kidney	PCMTD1
+701	Kidney	PDLIM1
+702	Kidney	PFN2
+703	Kidney	PGM3
+704	Kidney	PHACTR1
+705	Kidney	PHGDH
+706	Kidney	PIGR
+707	Kidney	PIM3
+708	Kidney	PIP5K1B
+709	Kidney	PKHD1L1
+710	Kidney	PKIG
+711	Kidney	PLEKHF2
+712	Kidney	PLEKHG1
+713	Kidney	PLEKHG7
+714	Kidney	PLIN5
+715	Kidney	PLP2
+716	Kidney	PLPP5
+717	Kidney	PNISR
+718	Kidney	PNOC
+719	Kidney	POU2AF1
+720	Kidney	POU2F2
+721	Kidney	PPM1K
+722	Kidney	PRCC
+723	Kidney	PRDM2
+724	Kidney	PRELID3B
+725	Kidney	PRMT1
+726	Kidney	PRODH2
+727	Kidney	PSENEN
+728	Kidney	PTGES2
+729	Kidney	PTOV1
+730	Kidney	PTPN6
+731	Kidney	PTPRK
+732	Kidney	PXK
+733	Kidney	PYCR1
+734	Kidney	QPRT
+735	Kidney	QRSL1
+736	Kidney	QTRT1
+737	Kidney	R3HDM4
+738	Kidney	RAB30
+739	Kidney	RAB3GAP1
+740	Kidney	RABEP1
+741	Kidney	RABEP2
+742	Kidney	RAD17
+743	Kidney	RAD50
+744	Kidney	RALGPS2
+745	Kidney	RAPGEF5
+746	Kidney	RASGRP3
+747	Kidney	RASSF6
+748	Kidney	RB1
+749	Kidney	RBBP7
+750	Kidney	RCL1
+751	Kidney	RCSD1
+752	Kidney	REPS2
+753	Kidney	REXO1
+754	Kidney	RGMB
+755	Kidney	RHBDD1
+756	Kidney	RHCG
+757	Kidney	RHOH
+758	Kidney	RIC3
+759	Kidney	RNASEH2B
+760	Kidney	RNASET2
+761	Kidney	RNF170
+762	Kidney	RNF25
+763	Kidney	RNGTT
+764	Kidney	RPL17
+765	Kidney	RPL22L1
+766	Kidney	RRAGC
+767	Kidney	RUNDC1
+768	Kidney	RUVBL1
+769	Kidney	SAC3D1
+770	Kidney	SCAF4
+771	Kidney	SCARNA2
+772	Kidney	SCIMP
+773	Kidney	SCPEP1
+774	Kidney	SDHB
+775	Kidney	SEC62
+776	Kidney	SEL1L3
+777	Kidney	SELENBP1
+778	Kidney	SELL
+781	Kidney	SERTAD2
+782	Kidney	SESTD1
+783	Kidney	SGOL1
+784	Kidney	SGSM3
+785	Kidney	SH2B2
+786	Kidney	SHMT2
+787	Kidney	SHPRH
+789	Kidney	SIPA1L3
+790	Kidney	SIRT3
+791	Kidney	SLC1A4
+792	Kidney	SLC22A7
+793	Kidney	SLC25A32
+794	Kidney	SLC2A11
+795	Kidney	SLC2A6
+796	Kidney	SLC35B2
+797	Kidney	SLC35F2
+798	Kidney	SLC37A4
+799	Kidney	SLC44A1
+800	Kidney	SLC6A19
+801	Kidney	SLC7A9
+802	Kidney	SMARCB1
+803	Kidney	SMC6
+804	Kidney	SMCHD1
+805	Kidney	SMDT1
+806	Kidney	SMIM14
+807	Kidney	SNHG19
+808	Kidney	SNHG7
+809	Kidney	SNRNP70
+810	Kidney	SNTA1
+811	Kidney	SNX2
+812	Kidney	SNX22
+813	Kidney	SNX29
+814	Kidney	SOBP
+815	Kidney	SORD
+816	Kidney	SOWAHD
+817	Kidney	SP100
+818	Kidney	SP110
+819	Kidney	SP140
+820	Kidney	SP140L
+821	Kidney	SPATC1L
+822	Kidney	SPATS2
+823	Kidney	SPIB
+824	Kidney	SPINT2
+825	Kidney	SRM
+826	Kidney	SRP14-AS1
+827	Kidney	SSPN
+828	Kidney	ST6GAL1
+829	Kidney	ST6GALNAC4
+830	Kidney	STAG3
+831	Kidney	STAP1
+832	Kidney	STEAP1B
+833	Kidney	STRADB
+834	Kidney	STRBP
+835	Kidney	STX7
+836	Kidney	SUCLA2
+837	Kidney	SUCO
+838	Kidney	SWAP70
+839	Kidney	SYK
+840	Kidney	SYNGR2
+841	Kidney	SYNPO
+842	Kidney	SYPL1
+843	Kidney	SYVN1
+844	Kidney	TAF1D
+845	Kidney	TAF7
+846	Kidney	TASP1
+847	Kidney	TCEA1
+848	Kidney	TCEB3
+849	Kidney	TCF19
+850	Kidney	TCF3
+851	Kidney	TCF4
+852	Kidney	TCL1A
+853	Kidney	TCOF1
+854	Kidney	TEFM
+855	Kidney	TEX9
+856	Kidney	TFEB
+857	Kidney	THY1
+858	Kidney	TIFA
+859	Kidney	TIMD4
+860	Kidney	TIMM9
+861	Kidney	TKFC
+862	Kidney	TLE1
+863	Kidney	TLR10
+864	Kidney	TMEM154
+865	Kidney	TMEM156
+866	Kidney	TMEM243
+867	Kidney	TMUB2
+868	Kidney	TNFAIP8
+869	Kidney	TNFRSF13B
+870	Kidney	TNFRSF13C
+871	Kidney	TNFRSF17
+872	Kidney	TP53INP1
+873	Kidney	TPD52
+874	Kidney	TRAF3
+875	Kidney	TRAF5
+876	Kidney	TRAM2
+877	Kidney	TRAPPC8
+878	Kidney	TRIM38
+879	Kidney	TRIP11
+880	Kidney	TSHR
+881	Kidney	TSPAN1
+882	Kidney	TSPAN13
+883	Kidney	TSPAN3
+884	Kidney	TTC14
+885	Kidney	TTC37
+886	Kidney	TTN
+887	Kidney	TXNDC11
+888	Kidney	TXNDC5
+889	Kidney	UBE2J1
+890	Kidney	UBE2N
+891	Kidney	UGT2A1
+892	Kidney	UHRF1
+893	Kidney	UPF2
+894	Kidney	UQCRH
+895	Kidney	USO1
+896	Kidney	USP8
+897	Kidney	UVRAG
+898	Kidney	VAV3-AS1
+899	Kidney	VOPP1
+900	Kidney	VPREB3
+901	Kidney	WBP1
+902	Kidney	WBP5
+903	Kidney	WDFY4
+904	Kidney	WDR34
+905	Kidney	WDR4
+906	Kidney	WFDC2
+907	Kidney	WFS1
+908	Kidney	WNT16
+909	Kidney	XPNPEP2
+910	Kidney	YPEL3
+911	Kidney	ZBP1
+912	Kidney	ZBTB32
+913	Kidney	ZCCHC7
+914	Kidney	ZDHHC21
+915	Kidney	ZFAS1
+916	Kidney	ZNF107
+917	Kidney	ZNF254
+918	Kidney	ZNF532
+919	Kidney	ZNF581
+920	Kidney	ZNF791
+921	Kidney	ZNF860
+922	Kidney	ZNF92
+926	Fetal liver	CD19
+928	Fetal liver	CD24
+929	Fetal liver	PAX5
+931	Liver	CD19
+934	Liver	CD79A
+935	Liver	CD79B
+936	Liver	CD80
+937	Liver	CD86
+938	Liver	HMGB1
+939	Liver	HMGB2
+941	Liver	MZB1
+942	Liver	RALY
+943	Liver	TCL1A
+944	Bronchial vessel	CD19
+945	Bronchial vessel	CD24
+946	Bronchial vessel	CD79A
+947	Bronchial vessel	MS4A1
+948	Bronchoalveolar system	CD19
+949	Bronchoalveolar system	MS4A1
+951	Lung	CD19
+954	Lung	CD79A
+955	Lung	CD79B
+956	Lung	IGHA1
+957	Lung	IGHG3
+958	Lung	IGHM
+959	Lung	IGKC
+962	Lung	MS4A1
+963	Lung	PTPRCAP
+964	Lung	TNFRSF17
+965	Lymph	MS4A1
+967	Lymph node	CD19
+971	Lymph node	CD27
+973	Lymph node	CD80
+976	Lymph node	PAX5
+981	Lymphoid tissue	CD40
+982	Lymphoid tissue	CD74
+983	Lymphoid tissue	CD80
+984	Lymphoid tissue	CD86
+989	Nasal mucosa	CD69
+990	Nasal polyp	BLK
+991	Nasal polyp	CD19
+992	Nasal polyp	CD22
+993	Nasal polyp	CD72
+995	Nasal polyp	CXCL13
+997	Nose	CD19
+999	Nose	CD38
+1000	Olfactory neuroepithelium	CD19
+1001	Olfactory neuroepithelium	CD79A
+1002	Olfactory neuroepithelium	MS4A1
+1003	Ovary	CD19
+1004	Ovary	CD79A
+1005	Ovary	CD79B
+1006	Ovary	IGKC
+1007	Pancreas	CD19
+1008	Pancreas	GCG
+1009	Pancreas	IAPP
+1010	Pancreas	INS
+1011	Pancreas	PPY
+1012	Pancreas	REG1A
+1013	Pancreas	SST
+1014	Pancreas	TTR
+1015	Periodontium	MS4A1
+1016	Peritoneal fluid	CD14
+1018	Peritoneal fluid	CD24
+1019	Peritoneal fluid	CD40
+1022	Salivary gland	CD19
+1024	Salivary gland	CD79A
+1025	Epidermis	MS4A1
+1026	Epidermis	TCL1A
+1027	Lymphoid tissue	MS4A1
+1028	Skin	CD19
+1032	Skin	CD27
+1033	Skin	CD79A
+1034	Skin	FCER2
+1035	Skin	IGHD
+1036	Skin	IGHG1
+1038	Skin	IL4R
+1039	Skin	ITGAX
+1040	Skin	JCHAIN
+1041	Skin	MS4A1
+1043	Skin	TBX21
+1044	Soft tissue	BANK1
+1045	Soft tissue	CD19
+1046	Soft tissue	CD22
+1047	Soft tissue	CD79A
+1048	Soft tissue	CR2
+1049	Soft tissue	FCRL2
+1050	Soft tissue	IGKC
+1051	Soft tissue	MS4A1
+1052	Soft tissue	PAX5
+1053	Spleen	CD19
+1054	Spleen	CD1C
+1057	Spleen	CD79A
+1058	Spleen	CR1
+1059	Spleen	CR2
+1060	Spleen	MS4A1
+1061	Sputum	CD79A
+1062	Sputum	EBF1
+1063	Sputum	IGHA2
+1064	Sputum	IGHG3
+1065	Sputum	MS4A1
+1067	Synovium	CD19
+1070	Synovium	CD79A
+1071	Synovium	RALGPS2
+1072	Malignant pleural effusion	CD79A
+1073	Malignant pleural effusion	CD79B
+1074	Malignant pleural effusion	IGHD
+1075	Malignant pleural effusion	IGHM
+1076	Malignant pleural effusion	MS4A1
+1082	Tonsil	CD40
+1084	Tonsil	IFI44L
+1085	Tonsil	MX1
+1086	Tonsil	XAF1
+1089	Undefined	BCL11A
+1090	Undefined	BCR
+1091	Undefined	CCR10
+1092	Undefined	CCR7
+1105	Undefined	CD14
+1109	Undefined	CD163
+1112	Undefined	CD19
+1113	Undefined	CD19
+1114	Undefined	CD19
+1119	Undefined	CD1C
+1121	Undefined	CD2
+1129	Undefined	CD22
+1130	Undefined	CD22
+1133	Undefined	CD24
+1138	Undefined	CD27
+1139	Undefined	CD27
+1146	Undefined	CD320
+1147	Undefined	CD34
+1149	Undefined	CD37
+1150	Undefined	CD38
+1151	Undefined	CD38
+1153	Undefined	CD3E
+1154	Undefined	CD40
+1155	Undefined	CD40
+1162	Undefined	CD48
+1164	Undefined	CD5
+1167	Undefined	CD68
+1168	Undefined	CD69
+1169	Undefined	CD70
+1175	Undefined	CD79A
+1177	Undefined	CD79B
+1178	Undefined	CD80
+1179	Undefined	CD81
+1180	Undefined	CD81
+1181	Undefined	CD83
+1182	Undefined	CD84
+1183	Undefined	CD86
+1184	Undefined	CD86
+1185	Undefined	CD9
+1186	Undefined	CR2
+1187	Undefined	CXCR3
+1188	Undefined	EBF1
+1191	Undefined	FOXO1
+1192	Undefined	GABPB1
+1193	Undefined	GFI1
+1197	Undefined	IKZF3
+1201	Undefined	IL7R
+1202	Undefined	ITGA4
+1203	Undefined	ITGB1
+1204	Undefined	JCHAIN
+1205	Undefined	LEF1
+1208	Undefined	MS4A1
+1209	Undefined	NFKB1
+1211	Undefined	PAX5
+1213	Undefined	PRDM1
+1214	Undefined	PTPRC
+1215	Undefined	PTPRJ
+1217	Undefined	SDC1
+1218	Undefined	SOX4
+1219	Undefined	STAT3
+1220	Undefined	TCF3
+1221	Undefined	TNF
+1223	Undefined	TNFRSF13B
+1224	Undefined	TNFRSF13C
+1225	Undefined	XBP1
+1226	Undefined	ZAP70
+1227	Ectocervix	CD79A
