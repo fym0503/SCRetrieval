@@ -3,4 +3,8 @@
 
 ![figure](logo/scretrieval.png)
 
-## Benchmarking Traditional Methods and Foundation Models for Single-cell Transcriptomics Data Search and Retrieval
+## Downstream analysis: novel cell detection
+
+We investigate the performance of different methods on novel cell detection quantitatively. As shown in folder [Panel_quantitative_benchmark](Panel_quantitative_benchmark), the code files used for analysis are summarized for each dataset, respectively. Please run the `run_precision_score.sh` in each folder to calculate metrics firstly, and run notebook [novelcell_plots.ipynb](novelcell_plots.ipynb) for visualization.
+
+The code for statistical test and visualization are listed in folder [Panel_statistical_testing](Panel_statistical_testing). 
