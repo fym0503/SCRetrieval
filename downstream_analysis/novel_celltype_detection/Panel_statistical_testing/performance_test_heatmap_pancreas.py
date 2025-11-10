@@ -11,11 +11,11 @@ import seaborn as sns
 
 plt.rcParams["font.family"] = "Arial"
 
-files = os.listdir("/ailab/user/chenpengan/fanyimin/retrieval_clean_codebase/novel_cell_type/Panel_quantitative_benchmark/Pancreas/scores")
+files = os.listdir("novel_cell_type/Panel_quantitative_benchmark/Pancreas/scores")
 
 df = []
 for f in files:
-    df_i = pd.read_csv("/ailab/user/chenpengan/fanyimin/retrieval_clean_codebase/novel_cell_type/Panel_quantitative_benchmark/Pancreas/scores/" + f)
+    df_i = pd.read_csv("novel_cell_type/Panel_quantitative_benchmark/Pancreas/scores/" + f)
     df_i = df_i.set_index("Unnamed: 0")
     df.append(df_i)
 

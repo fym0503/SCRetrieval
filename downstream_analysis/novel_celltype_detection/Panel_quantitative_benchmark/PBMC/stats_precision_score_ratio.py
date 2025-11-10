@@ -21,7 +21,7 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
-    scimilarity_path = "/Users/liuxinyuan/Desktop/new_projects/cell_retrieval/result_base/model_seen_unseen_result"
+    scimilarity_path = "novel/model_seen_unseen_result"
 
     y_score_all = []
 

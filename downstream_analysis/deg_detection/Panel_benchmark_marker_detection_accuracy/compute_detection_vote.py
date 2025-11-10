@@ -44,8 +44,8 @@ def similarity_heatmap(gene_list):
             sim_heatmap[i][j] = jaccard_similarity(set(gene_list[i]), set(gene_list[j]))
     return sim_heatmap
 
-path = "/Users/liuxinyuan/Desktop/new_projects/cell_retrieval/retrieval_clean_codebase/DEG_analysis/output/predicted_deg"
-adata = anndata.read("/Users/liuxinyuan/Desktop/new_projects/cell_retrieval/pancrea_data_embedding/adata_pbmc_benchmark.h5ad")
+path = "retrieval_clean_codebase/DEG_analysis/output/predicted_deg"
+adata = anndata.read("datasets/adata_pbmc_benchmark.h5ad")
 overlap_map = np.zeros((len(model_name_all), len(model_name_all)))
 all_celltype = np.array(adata.obs['CellType'])
 all_genes = adata.var['gene_name'].tolist()
@@ -53,7 +53,7 @@ all_genes = adata.var['gene_name'].tolist()
 for k in [100,150,200,250,300]:
     for method in [1,2,3,4,5,6,7,8,9]:
         performance_dict = dict()
-        index = pd.read_csv("/Users/liuxinyuan/Desktop/new_projects/cell_retrieval/retrieval_clean_codebase/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
+        index = pd.read_csv("retrieval_clean_codebase/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
         query_index = list(index['Query'])
         for item in range(len(index)):
             performance_dict[item] = []
@@ -64,7 +64,7 @@ for k in [100,150,200,250,300]:
                 for model in model_name_all:
                     performance_dict[item].append(-1)
             else:
-                marker = pd.read_csv("/Users/liuxinyuan/Desktop/new_projects/cell_retrieval/plot_codes/DEG_analysis_clean/marker_annotations/" + all_cell_type_item + " marker.csv",sep='\t').values[:,2]
+                marker = pd.read_csv("marker_annotations/" + all_cell_type_item + " marker.csv",sep='\t').values[:,2]
                 # new_marker = list(set(marker[np.isin(marker,all_genes)]))
                 for model in model_name_all:
                     top_genes_scores_pvals = pd.read_csv(path + "/" + model + "_" + str(method) + "_method_l2_norm/de_tests/" + str(query_index[item]) + ".csv")

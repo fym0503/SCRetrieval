@@ -12,7 +12,7 @@ parser.add_argument("--cell_type")
 parser.add_argument("--number",type=int,default=1)
 
 args = parser.parse_args()
-scimilarity_path = "/workspace/fuchenghao/retrieval_evaluation/result_base/disease_novel"
+scimilarity_path = "novel/disease_novel"
 
 y_score_all = []
 

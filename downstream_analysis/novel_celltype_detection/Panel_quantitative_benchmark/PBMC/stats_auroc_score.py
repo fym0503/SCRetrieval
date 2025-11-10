@@ -17,7 +17,7 @@ parser.add_argument("--number",type=int,default=1)
 
 args = parser.parse_args()
 
-scimilarity_path = "/Users/liuxinyuan/Desktop/new_projects/cell_retrieval/result_base/model_seen_unseen_result"
+scimilarity_path = "novel/model_seen_unseen_result"
 
 y_score_all = []
 

@@ -13,11 +13,11 @@ import argparse
 
 plt.rcParams["font.family"] = "Arial"
 
-files = os.listdir("/ailab/user/chenpengan/fanyimin/retrieval_clean_codebase/novel_cell_type/Panel_quantitative_benchmark/PBMC/scores")
+files = os.listdir("retrieval_clean_codebase/novel_cell_type/Panel_quantitative_benchmark/PBMC/scores")
 
 df = []
 for f in files:
-    df_i = pd.read_csv("/ailab/user/chenpengan/fanyimin/retrieval_clean_codebase/novel_cell_type/Panel_quantitative_benchmark/PBMC/scores/" + f)
+    df_i = pd.read_csv("retrieval_clean_codebase/novel_cell_type/Panel_quantitative_benchmark/PBMC/scores/" + f)
     df_i = df_i.set_index("Unnamed: 0")
     df.append(df_i)
 

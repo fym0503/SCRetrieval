@@ -57,15 +57,15 @@ def compute_jaccard_novelty(model_outputs):
     
     return novelty_scores
 
-path = "/ailab/user/chenpengan/fanyimin/retrieval_clean_codebase/DEG_analysis/output/predicted_deg"
-adata = anndata.read("/ailab/user/chenpengan/fanyimin/retrieval/adata_pbmc_benchmark.h5ad")
+path = "retrieval_clean_codebase/DEG_analysis/output/predicted_deg"
+adata = anndata.read("datasets/adata_pbmc_benchmark.h5ad")
 overlap_map = np.zeros((len(model_name_all), len(model_name_all)))
 all_celltype = np.array(adata.obs['CellType'])
 
 
 for method in [1,2,3,4,5,6,7,8,9]:
     performance_dict = dict()
-    index = pd.read_csv("/ailab/user/chenpengan/fanyimin/retrieval_clean_codebase/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
+    index = pd.read_csv("retrieval_clean_codebase/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
     query_index = list(index['Query'])
     for item in range(len(index)):
         performance_dict[item] = []

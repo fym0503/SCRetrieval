@@ -17,7 +17,7 @@ parser.add_argument("--number")
 
 args = parser.parse_args()
 
-scimilarity_path = "/workspace/fuchenghao/retrieval_evaluation/result_base/novel_discovery_pancreas"
+scimilarity_path = "novel/novel_discovery_pancreas"
 
 y_score_all = []
 

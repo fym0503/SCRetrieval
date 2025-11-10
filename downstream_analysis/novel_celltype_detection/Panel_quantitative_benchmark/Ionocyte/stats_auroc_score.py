@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--number")
 
 args = parser.parse_args()
-scimilarity_path = "/workspace/fuchenghao/retrieval_evaluation/result_base/ioncyte"
+scimilarity_path = "novel/ioncyte"
 
 y_score_all = []
 
@@ -91,7 +91,7 @@ auc_roc = pd.DataFrame(new_auc_roc_dict)
 
 df = pd.DataFrame(auc_roc)
 
-scimilarity_path =  "/workspace/fuchenghao/retrieval_evaluation/result_base/ioncyte/reverse"
+scimilarity_path =  "novel/ioncyte/reverse"
 
 average_precision_dict = dict()
 auc_roc_dict = dict()
