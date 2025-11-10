@@ -20,7 +20,7 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
-    scimilarity_path = "novel/ioncyte"
+    scimilarity_path = "novel_cell_type/ioncyte"
 
     y_score_all = []
 
@@ -141,7 +141,7 @@ if __name__ == '__main__':
     recall_df = pd.DataFrame(new_recall_dict)
     f1_df = pd.DataFrame(new_f1_dict)
 
-    scimilarity_path = "novel/ioncyte/reverse"
+    scimilarity_path = "novel_cell_type/ioncyte/reverse"
     average_precision_dict = dict()
     precision_dict = dict()
     accuracy_dict = dict()

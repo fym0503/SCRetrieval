@@ -44,14 +44,14 @@ def similarity_heatmap(gene_list):
             sim_heatmap[i][j] = jaccard_similarity(set(gene_list[i]), set(gene_list[j]))
     return sim_heatmap
 
-path = "retrieval_clean_codebase/DEG_analysis/output/predicted_deg"
+path = "downstream_output/DEG_analysis/output/predicted_deg"
 adata = anndata.read("datasets/adata_pbmc_benchmark.h5ad")
 overlap_map = np.zeros((len(model_name_all), len(model_name_all)))
 all_celltype = np.array(adata.obs['CellType'])
 
 for method in [1,2,3,4,5,6,7,8,9]:
     performance_dict = dict()
-    index = pd.read_csv("retrieval_clean_codebase/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
+    index = pd.read_csv("downstream_output/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
     query_index = list(index['Query'])
     for item in range(len(index)):
         performance_dict[item] = []

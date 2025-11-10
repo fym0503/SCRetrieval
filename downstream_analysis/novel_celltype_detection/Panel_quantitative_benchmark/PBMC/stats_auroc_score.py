@@ -17,7 +17,7 @@ parser.add_argument("--number",type=int,default=1)
 
 args = parser.parse_args()
 
-scimilarity_path = "novel/model_seen_unseen_result"
+scimilarity_path = "novel_cell_type/model_seen_unseen_result"
 
 y_score_all = []
 

@@ -51,13 +51,13 @@ def voting_top_genes(gene_list):
     top_genes = {gene for gene, count in sorted_genes[:100]} 
     return top_genes
 
-path = "retrieval_clean_codebase/DEG_analysis/output/predicted_deg"
+path = "downstream_output/DEG_analysis/output/predicted_deg"
 adata = anndata.read("datasets/adata_pbmc_benchmark.h5ad")
 all_celltype = np.array(adata.obs['CellType'])
 
 for method in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
     performance_dict = dict()
-    index = pd.read_csv("retrieval_clean_codebase/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
+    index = pd.read_csv("downstream_output/DEG_analysis/output/platform_sample/" + str(method) + "_index.csv")
     query_index = list(index['Query'])
     
     for item in range(len(index)):
