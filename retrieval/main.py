@@ -13,6 +13,7 @@ import numpy as np
 from faiss_retrieval import similarity_search
 import pandas as pd
 import os
+from sklearn.preprocessing import StandardScaler
 warnings.filterwarnings('ignore')
 
 # Number of components for whitening
