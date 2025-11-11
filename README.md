@@ -116,21 +116,22 @@ Noted that, for cross-species datasets, mouse-to-human gene mapping data are pro
 
 ### ✳️ Traditional Methods (TMs)
 
-- CellFishing.jl
+- [CellFishing.jl](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1639-x)
 - PCA
-- scVI
-- CellBlast
-- LDVAE
+- [scVI](https://www.nature.com/articles/s41592-018-0229-2)
+- [CellBlast](https://www.nature.com/articles/s41467-020-17281-7)
+- [LDVAE](https://www.nature.com/articles/s41592-018-0229-2)
 
 ### 🧩 Foundation Models (FMs)
 
-- Geneformer  
-- scFoundation  
-- scGPT  
-- UCE  
-- SCimilarity
-- scMuLan
-- CellPLM
+- [Geneformer](https://www.nature.com/articles/s41586-023-06139-9)
+- [scFoundation](https://www.nature.com/articles/s41592-024-02305-7)  
+- [scGPT](https://www.nature.com/articles/s41592-024-02201-0)
+- [UCE](https://www.biorxiv.org/content/10.1101/2023.11.28.568918v1)
+- [SCimilarity](https://www.nature.com/articles/s41586-024-08411-y)
+- [scMuLan](https://www.biorxiv.org/content/10.1101/2024.01.25.577152v1)
+- [CellPLM](https://www.biorxiv.org/content/10.1101/2023.10.03.560734v1)
+
 
 ---
 
