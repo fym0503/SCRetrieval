@@ -7,8 +7,8 @@ python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --retrieved_for_each_cell 100 \
     --faiss_search L2 \
     --obs cell_type,assay \
-    --query_indexes ./retrieval/cross_species_mouse_human_${split}/mouse_human_${tissue}_test.npy \
-    --target_indexes ./retrieval/cross_species_mouse_human_${split}/mouse_human_${tissue}_train.npy \
+    --query_indexes ../data/cross_species_mouse_human_${split}/mouse_human_${tissue}_test.npy \
+    --target_indexes ../data/cross_species_mouse_human_${split}/mouse_human_${tissue}_train.npy \
     --output_dir ../data/Tabula/results_${method}_${split}/mouse_human_${tissue}/
 python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --input_embeddings ../data/Tabula/embeddings/${method}_human_mouse_${split}_float/${tissue}.npy \
@@ -16,8 +16,8 @@ python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --retrieved_for_each_cell 100 \
     --faiss_search L2 \
     --obs cell_type,assay \
-    --query_indexes ./retrieval/cross_species_human_mouse_${split}/human_mouse_${tissue}_test.npy \
-    --target_indexes ./retrieval/cross_species_human_mouse_${split}/human_mouse_${tissue}_train.npy \
+    --query_indexes ../data/cross_species_human_mouse_${split}/human_mouse_${tissue}_test.npy \
+    --target_indexes ../data/cross_species_human_mouse_${split}/human_mouse_${tissue}_train.npy \
     --output_dir ../data/Tabula/results_${method}_${split}/human_mouse_${tissue}/
 done
 done
@@ -32,8 +32,8 @@ python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --retrieved_for_each_cell 100 \
     --faiss_search L2 \
     --obs cell_type,assay \
-    --query_indexes ./retrieval/cross_species_mouse_human_${split}/mouse_human_${tissue}_test.npy \
-    --target_indexes ./retrieval/cross_species_mouse_human_${split}/mouse_human_${tissue}_train.npy \
+    --query_indexes ../data/cross_species_mouse_human_${split}/mouse_human_${tissue}_test.npy \
+    --target_indexes ../data/cross_species_mouse_human_${split}/mouse_human_${tissue}_train.npy \
     --output_dir ../data/Tabula/results_${method}_${split}/mouse_human_${tissue}/
 python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --input_embeddings ../data/Tabula/embeddings/${method}_human_mouse_${split}/${tissue}.npy \
@@ -41,8 +41,8 @@ python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --retrieved_for_each_cell 100 \
     --faiss_search L2 \
     --obs cell_type,assay \
-    --query_indexes ./retrieval/cross_species_human_mouse_${split}/human_mouse_${tissue}_test.npy \
-    --target_indexes ./retrieval/cross_species_human_mouse_${split}/human_mouse_${tissue}_train.npy \
+    --query_indexes ../data/cross_species_human_mouse_${split}/human_mouse_${tissue}_test.npy \
+    --target_indexes ../data/cross_species_human_mouse_${split}/human_mouse_${tissue}_train.npy \
     --output_dir ../data/Tabula/results_${method}_${split}/human_mouse_${tissue}/
 done
 done
@@ -58,8 +58,8 @@ python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --retrieved_for_each_cell 100 \
     --faiss_search L2 \
     --obs cell_type,assay \
-    --query_indexes ./retrieval/cross_species_mouse_human_${split}/mouse_human_${tissue}_test.npy \
-    --target_indexes ./retrieval/cross_species_mouse_human_${split}/mouse_human_${tissue}_train.npy \
+    --query_indexes ../data/cross_species_mouse_human_${split}/mouse_human_${tissue}_test.npy \
+    --target_indexes ../data/cross_species_mouse_human_${split}/mouse_human_${tissue}_train.npy \
     --output_dir ../data/Tabula/results_${method}_${split}/mouse_human_${tissue}/
 python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --input_embeddings ../data/Tabula/embeddings/${method}/${tissue}.npy \
@@ -67,8 +67,8 @@ python ../retrieval/main.py --input_adata ../data/Tabula/${tissue}.h5ad \
     --retrieved_for_each_cell 100 \
     --faiss_search L2 \
     --obs cell_type,assay \
-    --query_indexes ./retrieval/cross_species_human_mouse_${split}/human_mouse_${tissue}_test.npy \
-    --target_indexes ./retrieval/cross_species_human_mouse_${split}/human_mouse_${tissue}_train.npy \
+    --query_indexes ../data/cross_species_human_mouse_${split}/human_mouse_${tissue}_test.npy \
+    --target_indexes ../data/cross_species_human_mouse_${split}/human_mouse_${tissue}_train.npy \
     --output_dir ../data/Tabula/results_${method}_${split}/human_mouse_${tissue}/
 done
 done
