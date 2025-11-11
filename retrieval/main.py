@@ -13,6 +13,7 @@ import numpy as np
 from faiss_retrieval import similarity_search
 import pandas as pd
 import os
+from sklearn.preprocessing import StandardScaler
 warnings.filterwarnings('ignore')
 
 # Number of components for whitening
@@ -28,7 +29,7 @@ parser.add_argument('--obs', type=str, required=True)
 parser.add_argument('--query_indexes', type=str, default=None)
 parser.add_argument('--target_indexes', type=str, default=None)
 parser.add_argument('--output_dir', type=str, required=True)
-parser.add_argument('--has_paired_data', type=str, default=None)
+parser.add_argument('--has_paired_data', action='store_true')
 parser.add_argument('--paired_adata', type=str, default=None, help='Path to input paired .h5ad file')
 parser.add_argument('--pair_embeddings', type=str, default=None, help='Path to input paired .npy file')
 parser.add_argument('--norm', type=str, default=None)
