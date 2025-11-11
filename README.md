@@ -106,8 +106,8 @@ Currently included datasets:
 ├─ Ionocyte
 └─ COVID
 ```
-
 Noted that, for cross-species datasets, mouse-to-human gene mapping data are provided.
+
 ---
 
 ## 🧠 Algorithms
