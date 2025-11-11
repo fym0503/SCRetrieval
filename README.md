@@ -154,6 +154,3 @@ For issues or questions, please open an issue on the [GitHub repository](https:/
 ---
 
 © 2025 SCRetrieval. All rights reserved.
-```
-
----
