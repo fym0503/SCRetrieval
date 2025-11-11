@@ -19,7 +19,7 @@ Noted that, for cross-species datasets, mouse-to-human gene mapping data are pro
 ---
 ## Steps to download and organize data
 
-1. All included datasets can be downloaded from the Google Drive link (here)[].
+1. All included datasets can be downloaded from the Google Drive link [here](www.google.com).
 
 2. For each dataset, unzip the compressed files to obtain raw h5ad files and model inference embeddings.
 
