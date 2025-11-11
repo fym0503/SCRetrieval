@@ -22,3 +22,12 @@ Noted that, for cross-species datasets, mouse-to-human gene mapping data are pro
 1. All included datasets can be downloaded from the Google Drive link (here)[].
 
 2. For each dataset, unzip the compressed files to obtain raw h5ad files and model inference embeddings.
+
+Example (PBMC-Ding)
+```bash
+unzip PBMC-Ding.zip #raw h5ad files
+cd ./PBMC-Ding
+mkdir ./embeddings
+cd ./embeddings
+unzip PBMC-Ding.zip #model inference embeddings
+```
