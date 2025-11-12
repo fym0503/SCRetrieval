@@ -1,6 +1,4 @@
 
-![figure](../../logo/scretrieval.png)
-
 # Downstream analysis: Novel cell type detection
 
 This repository provides downstream evaluation of novel cell type detection, including:
@@ -48,11 +46,16 @@ These include DE results, candidate marker lists, and cell-type labels used as i
 #### Quantitative benchmark (take COVID as an example):
 
 ```bash
-sh Panel_quantitative_benchmark/COVID/run_precision_score.sh
+bash Panel_quantitative_benchmark/COVID/run_precision_score.sh
 ```
 
-Inputs: `downstream_output/novel_cell_type/disease_novel/`
-Outputs: csv files of each metrics
+Inputs: 
+
+`downstream_output/novel_cell_type/disease_novel/`
+
+Outputs: 
+
+`csv files of each metrics`
 
 
 #### Statistical test
@@ -62,8 +65,13 @@ python Panel_statistical_testing/performance_test_heatmap_pancreas.py
 python Panel_statistical_testing/performance_test_heatmap_pbmc.py
 ```
 
-Inputs: output csv files from Quantitative benchmark
-Outputs: heatmaps of pancreas and PBMC datasets
+Inputs: 
+
+`output csv files from Quantitative benchmark`
+
+Outputs: 
+
+`heatmaps of pancreas and PBMC datasets`
 
 #### Visualization
 Run `novelcell_plots.ipynb` notebook.
