@@ -129,7 +129,7 @@ Here is the list of different datasets' settings:
 
 | **Setting**              | **Dataset(s)**                          |
 |-------------------------------------|-----------------------------------------|
-| Multiple Random Splits Evaluations, Multi-Platform | PBMC-Ding, Pancreas                    |
+| Multiple Splits by Platforms, Multi-Platform | PBMC-Ding, Pancreas                    |
 | Multiple Random Splits Evaluations, Multi-Species  | Tabula                                 |
 | Multi-Species                       | Cerebellum-dev, Muscle-aging           |
 | Multi-Technologies                  | Arterial-Aorta, Arterial-RCA, Limb-Embryo |
