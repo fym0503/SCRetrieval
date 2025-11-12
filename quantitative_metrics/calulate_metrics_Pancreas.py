@@ -7,11 +7,11 @@ for model in models:
     for i in range(1,5):
         # print(i)
         if model == "cellfishing":
-            celltype = pd.read_csv(f'./raw_data/Pancreas/{model}_{i}_method/celltype.csv')    
-            method = pd.read_csv(f'./raw_data/Pancreas/{model}_{i}_method/tech.csv')
+            celltype = pd.read_csv(f'../data/Pancreas/{model}_{i}_method/celltype.csv')    
+            method = pd.read_csv(f'../data/Pancreas/{model}_{i}_method/tech.csv')
         else:
-            celltype = pd.read_csv(f'./raw_data/Pancreas/{model}_{i}_method_l2_norm/celltype.csv')    
-            method = pd.read_csv(f'./raw_data/Pancreas/{model}_{i}_method_l2_norm/tech.csv')
+            celltype = pd.read_csv(f'../data/Pancreas/{model}_{i}_method_l2_norm/celltype.csv')    
+            method = pd.read_csv(f'../data/Pancreas/{model}_{i}_method_l2_norm/tech.csv')
 
         query = celltype['Query']
         query_method = method['Query']
