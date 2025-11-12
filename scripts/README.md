@@ -20,6 +20,10 @@ Different settings are applied to different datasets, we provide retrieval scrip
 | Multi-Technologies                  | Arterial-Aorta, Arterial-RCA, Limb-Embryo |
 | Novel Cell Discovery           | Ionocyte, COVID                        |
 
+## Retrieval For Customized Dataset
+
+Read the template provided in **Retrieval_Template.sh** to run retrieval on different settings, inlcuding single query setting, explicit query and reference setting and multiple datasets setting.
+
 ## Evaluation
 
 To obtain the metrics, Retrieval Accuracy, Retrieval Diversity and Retrieval Fairness, run:
