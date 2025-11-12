@@ -7,8 +7,8 @@ for dataset in ['Arterial-RCA','Arterial-Aortia','Limb-Embryo']:
         for model in models:
             # print(model)
             method_df = dict()
-            celltype = pd.read_csv(f'./raw_data/{dataset}/{cross}/{model}/cell_type.csv')    
-            method = pd.read_csv(f'./raw_data/{dataset}/{cross}/{model}/batch.csv')
+            celltype = pd.read_csv(f'../data/{dataset}/{cross}/{model}/cell_type.csv')    
+            method = pd.read_csv(f'../data/{dataset}/{cross}/{model}/batch.csv')
             query = celltype['Query']
             query_method = method['Query']
             del celltype['Query']
