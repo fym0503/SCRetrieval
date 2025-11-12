@@ -84,7 +84,7 @@ cd scripts
 bash PBMC-Ding_retrieval.sh
 ```
 
-### 🔹 Run Retrieval Performance Accuracy Example (PBMC-Ding)
+### 🔹 Run Retrieval Performance Metric Example (PBMC-Ding)
 
 ```bash
 cd scripts
@@ -108,6 +108,16 @@ Currently included datasets:
 ├─ Ionocyte
 └─ COVID
 ```
+Here is the list of settings applied to different datasets:
+
+| **Setting**              | **Dataset(s)**                          |
+|-------------------------------------|-----------------------------------------|
+| Multiple Random Splits Evaluations, Multi-Platform | PBMC-Ding, Pancreas                    |
+| Multiple Random Splits Evaluations, Multi-Species  | Tabula                                 |
+| Multi-Species                       | Cerebellum-dev, Muscle-aging           |
+| Multi-Technologies                  | Arterial-Aorta, Arterial-RCA, Limb-Embryo |
+| Novel Cell Discovery           | Ionocyte, COVID                        |
+
 Noted that, for cross-species datasets, mouse-to-human gene mapping data are provided.
 
 ---
