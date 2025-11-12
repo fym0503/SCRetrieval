@@ -55,10 +55,10 @@ bash Panel_benchmark_marker_consistency/run_all.sh
 Inputs: `downstream_output/DEG_analysis/output/predicted_deg`
 
 Outputs: 
-`- full_result_deg_overlap.csv`
-- full_result_marker_overlap.csv
-- full_result_deg_overlap.pdf
-- full_result_marker_overlap.pdf`
+`- full_result_deg_overlap.csv`  
+`- full_result_marker_overlap.csv`  
+`- full_result_deg_overlap.pdf`  
+`- full_result_marker_overlap.pdf`
 
 ```bash
 bash Panel_benchmark_marker_detection_accuracy/run_all.sh
