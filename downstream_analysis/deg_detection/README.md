@@ -52,9 +52,12 @@ Detection consistency:
 bash Panel_benchmark_marker_consistency/run_all.sh
 ```
 
-Inputs: `downstream_output/DEG_analysis/output/predicted_deg`
+Inputs: 
 
-Outputs: 
+`downstream_output/DEG_analysis/output/predicted_deg`
+
+Outputs:
+
 `- full_result_deg_overlap.csv`  
 `- full_result_marker_overlap.csv`  
 `- full_result_deg_overlap.pdf`  
@@ -63,7 +66,10 @@ Outputs:
 ```bash
 bash Panel_benchmark_marker_detection_accuracy/run_all.sh
 ```
-Inputs: `downstream_output/DEG_analysis/output/predicted_deg`
+Inputs: 
+
+`downstream_output/DEG_analysis/output/predicted_deg`
 
 Outputs: 
+
 `- full_result.csv`
