@@ -1,8 +1,6 @@
 
 
 
-![figure](../../logo/scretrieval.png)
-
 # Downstream analysis: Marker genes analysis
 
 This repository provides downstream evaluation of marker genes along two dimensions:
