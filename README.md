@@ -170,6 +170,9 @@ For downstream evaluation details, refer to `downstream_analysis/README.md`.
 
 **Currently included downstream tasks:**
 
+- Biomarkers Discovery
+- Novel Cell State Identification
+
 ---
 
 ## 📜 License
