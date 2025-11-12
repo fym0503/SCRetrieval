@@ -35,13 +35,13 @@ Use the provided installation scripts to set up corresponding environments.
 
 | Installation Script       | Python/Julia Version | Methods Supported                              |
 |---------------------------|----------------------|------------------------------------------------|
-| `env1_installation.sh`    | Python 3.8           | UCE, Scimilarity                               |
+| `env1_installation.sh`    | Python 3.8           | UCE, SCimilarity                               |
 | `env2_installation.sh`    | Python 3.11          | Geneformer, scFoundation, scVI, PCA, LDVAE     |
 | `env3_installation.sh`    | Python 3.10          | scGPT                                          |
 | `env4_installation.sh`    | Python 3.10          | scMulan                                        |
-| `env5_installation.sh`    | Python 3.9           | cellPLM                                        |
+| `env5_installation.sh`    | Python 3.9           | CellPLM                                        |
 | `env6_installation.sh`    | Python 3.9           | CellBlast                                      |
-| `env7_installation.sh`    | Julia 1.6.7          | CellFishing                                    |
+| `env7_installation.sh`    | Julia 1.6.7          | CellFishing.jl                                 |
 
 To install the required environment for a specific setup, run:
 
