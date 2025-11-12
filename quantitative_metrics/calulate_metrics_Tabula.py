@@ -10,8 +10,8 @@ for cross in ['human_mouse',"mouse_human"]:
         for tissue in tissues:
             for i in range(1,6):
                 print(i)
-                celltype = pd.read_csv(f'./raw_data/Tabula/results_{model}_{i}/{cross}_{tissue}/cell_type.csv')    
-                method = pd.read_csv(f'./raw_data/Tabula/results_{model}_{i}/{cross}_{tissue}/assay.csv')
+                celltype = pd.read_csv(f'../data/Tabula/results_{model}_{i}/{cross}_{tissue}/cell_type.csv')    
+                method = pd.read_csv(f'../data/Tabula/results_{model}_{i}/{cross}_{tissue}/assay.csv')
                 query = celltype['Query']
                 query_method = method['Query']
                 del celltype['Query']
