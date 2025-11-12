@@ -1,4 +1,3 @@
-![figure](../../logo/scretrieval.png)
 
 # Analysis of different hyperparameters
 
