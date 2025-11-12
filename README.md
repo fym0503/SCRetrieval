@@ -108,7 +108,7 @@ Currently included datasets:
 ├─ Ionocyte
 └─ COVID
 ```
-Here is the list of settings applied to different datasets:
+Here is the list of different datasets' settings:
 
 | **Setting**              | **Dataset(s)**                          |
 |-------------------------------------|-----------------------------------------|
