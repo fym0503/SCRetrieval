@@ -1,6 +1,6 @@
 ## Retrieval
 
-Run the retrieval experiments for datasets and models included in the bencmark.
+Run the retrieval experiments for datasets and models included in the benchmark.
 
 Please generate models' embeddings before running the retrieval scripts. You can also use the raw data and embeddings provided by us, following the setup instructions in **data** directory.
 
