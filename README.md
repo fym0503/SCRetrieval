@@ -51,7 +51,7 @@ bash environments/env1_installation.sh
 
 ---
 
-## Quick Start: 3-Step Pipeline
+## 🚀 Quick Start: 3-Step Pipeline
 
 Follow this **end-to-end pipeline** to run model inference, perform cell retrieval, and evaluate performance using the **PBMC-Ding** dataset as an example.
 
