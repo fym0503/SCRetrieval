@@ -14,3 +14,5 @@ for thres in 5 10 15 20 25 30 35; do
   --threshold "$thres"
 done;
 done
+
+python submit.py

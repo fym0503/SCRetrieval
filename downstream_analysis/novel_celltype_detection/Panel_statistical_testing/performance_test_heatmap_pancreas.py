@@ -59,7 +59,7 @@ heatmap_data = p_value_matrix.copy()
 heatmap_data[heatmap_data > 0.05] = 0.05 
 
 heatmap_data = heatmap_data[list(heatmap_data.columns[1:])][:-1]
-mask = np.tril(np.ones_like(heatmap_data, dtype=bool))  # 创建上三角掩码
+mask = np.tril(np.ones_like(heatmap_data, dtype=bool)) 
 for i in range(len(mask)):
     mask[i,i] = False
     
@@ -77,17 +77,17 @@ ax = sns.heatmap(
 
 
 
-ax.xaxis.set_label_position('top')           # 将 X 轴标签移动到顶部
-ax.xaxis.tick_top()                          # 设置 X 轴刻度在顶部
-plt.xticks(fontsize=20, rotation=90)         # 设置 X 轴标签旋转 90 度
+ax.xaxis.set_label_position('top')          
+ax.xaxis.tick_top()                        
+plt.xticks(fontsize=20, rotation=90)       
 
-ax.yaxis.set_label_position('right')         # 将 Y 轴标签移动到右侧
-ax.yaxis.tick_right()                        # 设置 Y 轴刻度在右侧
-plt.yticks(fontsize=20, rotation=0)          # 设置 Y 轴标签旋转 90 度
+ax.yaxis.set_label_position('right')    
+ax.yaxis.tick_right()                       
+plt.yticks(fontsize=20, rotation=0)        
 ax.tick_params(right=False, top=False)
 
-plt.xticks(fontsize=20,rotation=90)  #  
-plt.yticks(fontsize=20,rotation=0)  # 
+plt.xticks(fontsize=20,rotation=90)  
+plt.yticks(fontsize=20,rotation=0) 
 plt.xlabel("")
 plt.ylabel("")
 plt.tight_layout()

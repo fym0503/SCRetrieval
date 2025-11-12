@@ -77,4 +77,4 @@ for k in [100,150,200,250,300]:
         performance_dict.index = model_name_all + ['Random']
         performance_dict.columns = query_index
         os.makedirs("detection_vote",exist_ok=True)
-        performance_dict.to_csv("detection_vote/" + str(method) + "_" + str(k) + "2.csv")
+        performance_dict.to_csv("detection_vote/" + str(method) + "_" + str(k) + ".csv")
