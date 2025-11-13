@@ -26,11 +26,11 @@ Different settings are applied to different datasets, we provide retrieval scrip
 | Multi-Technologies                  | Arterial-Aorta, Arterial-RCA, Limb-Embryo |
 | Novel Cell Discovery           | Ionocyte, COVID                        |
 
-# Multiple Splits by Platform
+#### Multiple Splits by Platform
 
 One platform is excluded as the query dataset, while the others are used as the reference for retrieval evaluation.
 
-# Multiple Random Splits Evaluations
+#### Multiple Random Splits Evaluations
 
 For each cross-species retrieval task, we designate one species as the query set and another as the reference set, then randomly sample to create splits, repeating this process five times for evaluation.
 
