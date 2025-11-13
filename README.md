@@ -134,7 +134,7 @@ Here is the list of different datasets' settings:
 | Multi-Technologies                  | Arterial-Aorta, Arterial-RCA, Limb-Embryo |
 | Novel Cell Discovery           | Ionocyte, COVID                        |
 
-Noted that, for cross-species datasets, mouse-to-human gene mapping data are provided.
+Noted that, for cross-species datasets, mouse-to-human gene mapping data are provided. The mapping is extracted, using the API provided by [BioMart](https://www.ensembl.org/info/data/biomart/index.html).
 
 ---
 
