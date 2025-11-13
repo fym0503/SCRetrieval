@@ -37,7 +37,7 @@ Download upstream benchmark outputs and place them under downstream_output/:
   - `downstream_output/novel_cell_type/` - stores required data for novel cell detection analysis in `novel_celltype_detection` folder.
   - `downstream_output/UMAP/` - stores required data for UMAP visualization
 
-These include DE results, candidate marker lists, and cell-type labels used as inputs.
+These include cosine similarity files between query cells and reference cells for each method.
 
 ---
 

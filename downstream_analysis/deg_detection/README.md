@@ -46,7 +46,7 @@ These include DE results, candidate marker lists, and cell-type labels used as i
 
 ## Workflow
 
-Detection consistency:
+#### Detection consistency:
 
 ```bash
 bash Panel_benchmark_marker_consistency/run_all.sh
@@ -62,6 +62,8 @@ Outputs:
 `- full_result_marker_overlap.csv`  
 `- full_result_deg_overlap.pdf`  
 `- full_result_marker_overlap.pdf`
+
+#### Detection accuracy:
 
 ```bash
 bash Panel_benchmark_marker_detection_accuracy/run_all.sh
