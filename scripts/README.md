@@ -14,11 +14,19 @@ Different settings are applied to different datasets, we provide retrieval scrip
 
 | **Setting**              | **Dataset(s)**                          |
 |-------------------------------------|-----------------------------------------|
-|  Multiple Splits by Platforms, Multi-Platform | PBMC-Ding, Pancreas                    |
+| Multiple Splits by Platforms, Multi-Platform | PBMC-Ding, Pancreas                    |
 | Multiple Random Splits Evaluations, Multi-Species  | Tabula                                 |
 | Multi-Species                       | Cerebellum-dev, Muscle-aging           |
 | Multi-Technologies                  | Arterial-Aorta, Arterial-RCA, Limb-Embryo |
 | Novel Cell Discovery           | Ionocyte, COVID                        |
+
+# Multiple Splits by Platform
+
+One platform is excluded as the query dataset, while the others are used as the reference for retrieval evaluation.
+
+# Multiple Random Splits Evaluations
+
+For each cross-species retrieval task, we designate one species as the query set and another as the reference set, then randomly sample to create splits, repeating this process five times for evaluation.
 
 ## Retrieval For Customized Dataset
 
