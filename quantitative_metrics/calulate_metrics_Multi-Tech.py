@@ -1,5 +1,7 @@
+from pathlib import Path
 import pandas as pd
-from metrics import compute_cell_type_matching_metrics,compute_batch_diversity_metrics,compute_balanced_metrics
+Path('./metric').mkdir(exist_ok=True)
+from metrics import compute_cell_type_matching_metrics,compute_batch_diversity_metrics,compute_balanced_metrics,load_reference_metadata
 models = ["cellfishing","pca","scvi","linearscvi","cellblast","scfoundation","scgpt","scimilarity","uce","geneformer","scmulan","cellplm"]
 for dataset in ['Arterial-RCA','Arterial-Aortia','Limb-Embryo']:
     for cross in ["st_sc"]:
@@ -9,6 +11,8 @@ for dataset in ['Arterial-RCA','Arterial-Aortia','Limb-Embryo']:
             method_df = dict()
             celltype = pd.read_csv(f'../data/{dataset}/{cross}/{model}/cell_type.csv')    
             method = pd.read_csv(f'../data/{dataset}/{cross}/{model}/batch.csv')
+            reference_labels, reference_batches = load_reference_metadata(
+                Path(f'../data/{dataset}/{cross}/{model}/batch.csv').with_name('reference_obs.csv'), 'cell_type', 'batch')
             query = celltype['Query']
             query_method = method['Query']
             del celltype['Query']
@@ -19,11 +23,11 @@ for dataset in ['Arterial-RCA','Arterial-Aortia','Limb-Embryo']:
                 del method['Unnamed: 0']
             
             for k in [50]:
-                ct_metrics = compute_cell_type_matching_metrics(list(query), celltype.values[:,0:k],k)
+                ct_metrics = compute_cell_type_matching_metrics(list(query), celltype.values[:,0:k],k, reference_labels=reference_labels)
                 print("ct_metrics")
-                batch_metrics = compute_batch_diversity_metrics(list(query), celltype.values[:,0:k], method.values[:,0:k])
+                batch_metrics = compute_batch_diversity_metrics(list(query), celltype.values[:,0:k], method.values[:,0:k], alpha=0.5, k=k, reference_labels=reference_labels, reference_batches=reference_batches)
                 print("batch_metrics")
-                balanced_metrics = compute_balanced_metrics(list(query), celltype.values[:,0:k],k)
+                balanced_metrics = compute_balanced_metrics(list(query), celltype.values[:,0:k],k, reference_labels=reference_labels)
                 print("balanced_metrics")
                 combined_metrics = {**ct_metrics, **batch_metrics, **balanced_metrics}
                 method_df['method_top_' + str(k)] = combined_metrics

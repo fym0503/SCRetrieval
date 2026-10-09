@@ -184,6 +184,14 @@ def main():
     
     np.save(os.path.join(args.output_dir, "distances.npy"), distances)
 
+    # Complete eligible reference pool: required for corrected metric denominators.
+    # Keep the same annotation names as the existing ranked CSV exports.
+    reference_obs = pd.DataFrame({
+        ("batch" if col == "donor_id" else col): all_obs[col][ref_global_idx]
+        for col in obs_list
+    })
+    reference_obs.to_csv(os.path.join(args.output_dir, "reference_obs.csv"), index=False)
+
     # Save annotation CSVs
     for col in obs_list:
         values = all_obs[col]
