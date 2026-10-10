@@ -2,6 +2,60 @@ import numpy as np
 from collections import Counter
 from collections import defaultdict
 import pandas as pd
+
+
+
+def _validate_k(k):
+    if isinstance(k, bool) or not isinstance(k, (int, np.integer)) or k <= 0:
+        raise ValueError("k must be a positive integer")
+
+
+def _reference(values, name):
+    if values is None:
+        raise ValueError(name + " is required: supply the complete eligible reference pool")
+    values = np.asarray(values)
+    if values.ndim != 1 or not len(values) or pd.isna(values).any():
+        raise ValueError(name + " must be a nonempty 1D array without missing labels")
+    return values
+
+
+def _ranked(queries, predictions, k):
+    _validate_k(k)
+    queries = np.asarray(queries)
+    predictions = np.asarray(predictions)
+    if queries.ndim != 1 or predictions.ndim != 2 or len(queries) != len(predictions):
+        raise ValueError("query labels and ranked predictions must have matching rows")
+    if not len(queries) or not predictions.shape[1]:
+        raise ValueError("ranked results must not be empty")
+    if pd.isna(queries).any() or pd.isna(predictions).any():
+        raise ValueError("query and retrieved labels must not be missing")
+    return queries, predictions[:, :k]
+
+
+def _finite_mean(scores):
+    scores = np.asarray(scores, dtype=float)
+    finite = scores[np.isfinite(scores)]
+    return float(np.mean(finite)) if len(finite) else np.nan
+
+
+def _finite_gini(scores, labels=None):
+    scores = np.asarray(scores, dtype=float)
+    valid = np.isfinite(scores)
+    if not np.any(valid):
+        return 0.0
+    if labels is None:
+        return compute_gini_index(scores[valid])
+    return compute_cell_type_gini_index(np.asarray(labels)[valid], scores[valid])
+
+
+def load_reference_metadata(path, label_column, batch_column):
+    """Read one row per eligible reference cell (never deduplicate labels)."""
+    reference = pd.read_csv(path)
+    return (
+        _reference(reference[label_column].values, "reference_labels"),
+        _reference(reference[batch_column].values, "reference_batches"),
+    )
+
 def top_k_vote_accuracy(correct_labels, top_k_predictions, k=5):
     """
     Computes Top-K Voting Accuracy by determining the most frequent label
@@ -81,26 +135,25 @@ def mean_average_precision(correct_labels, top_k_predictions, k=5):
     return average_precisions, np.mean(average_precisions)
 
 
-def ndcg(correct_labels, top_k_predictions, k=5):
-    """
-    Computes Normalized Discounted Cumulative Gain (nDCG).
+def ndcg(correct_labels, top_k_predictions, k=5, *, reference_labels=None):
+    """Binary NDCG@k; IDCG uses all eligible reference cells of the query type.
 
-    Args:
-        correct_labels (list): List of true labels (size N).
-        top_k_predictions (list of lists): List of top-K predictions for each query (size N*K).
-        k (int): Number of predictions to consider for nDCG.
-
-    Returns:
-        tuple: (List of individual nDCG scores, mean nDCG score).
+    Queries without a matching reference type return NaN and are excluded from
+    the mean. The reference pool must match this particular split/direction.
     """
-    ndcg_scores = []
-    for i, correct in enumerate(correct_labels):
-        relevance = [1 if pred == correct else 0 for pred in top_k_predictions[i][:k]]
-        dcg = sum([rel / np.log2(idx + 2) for idx, rel in enumerate(relevance)])
-        ideal_relevance = sorted(relevance, reverse=True)
-        idcg = sum([rel / np.log2(idx + 2) for idx, rel in enumerate(ideal_relevance)])
-        ndcg_scores.append(dcg / idcg if idcg > 0 else 0)
-    return ndcg_scores, np.mean(ndcg_scores)
+    queries, predictions = _ranked(correct_labels, top_k_predictions, k)
+    reference = _reference(reference_labels, "reference_labels")
+    counts = Counter(reference)
+    discounts = 1.0 / np.log2(np.arange(1, k + 1, dtype=float) + 1.0)
+    ideals = {label: np.sum(discounts[:min(k, counts[label])]) for label in queries}
+    scores = []
+    for label, row in zip(queries, predictions):
+        if any(count > counts[value] for value, count in Counter(row).items()):
+            raise ValueError("retrieved labels exceed the eligible reference counts")
+        ideal = ideals[label]
+        scores.append(float(np.sum((row == label) * discounts[:len(row)]) / ideal)
+                      if ideal > 0 else np.nan)
+    return scores, _finite_mean(scores)
 
 
 def mean_reciprocal_rank(correct_labels, top_k_predictions, k=5):
@@ -127,90 +180,64 @@ def mean_reciprocal_rank(correct_labels, top_k_predictions, k=5):
             reciprocal_ranks.append(0)
     return reciprocal_ranks, np.mean(reciprocal_ranks)
 
-def compute_cell_type_matching_metrics(correct_labels, top_k_predictions ,k=5):
+def compute_cell_type_matching_metrics(correct_labels, top_k_predictions, k=5, *, reference_labels=None):
     metrics = {
         "Top-K Vote Accuracy": top_k_vote_accuracy(correct_labels, top_k_predictions, k)[1],
         "Top-K Average Accuracy": top_k_average_accuracy(correct_labels, top_k_predictions, k)[1],
         "Mean Average Precision (MAP)": mean_average_precision(correct_labels, top_k_predictions, k)[1],
-        "Normalized Discounted Cumulative Gain (nDCG)": ndcg(correct_labels, top_k_predictions, k)[1],
+        "Normalized Discounted Cumulative Gain (nDCG)": ndcg(correct_labels, top_k_predictions, k, reference_labels=reference_labels)[1],
         "Mean Reciprocal Rank (MRR)": mean_reciprocal_rank(correct_labels, top_k_predictions, k)[1]
     }
     return metrics 
 
-def compute_entropy_batch(top_k_labels_batch):
-    """
-    Computes the average entropy of batch labels for a batch of queries.
+def compute_entropy_batch(top_k_labels_batch, *, reference_batches=None, k=50):
+    """Entropy@k / log2(B), where B counts all eligible reference batches."""
+    reference = _reference(reference_batches, "reference_batches")
+    _, batches = _ranked(np.zeros(len(top_k_labels_batch)), top_k_labels_batch, k)
+    available = Counter(reference)
+    denominator = np.log2(len(available)) if len(available) > 1 else None
+    scores = []
+    for row in batches:
+        counts = Counter(row)
+        if any(count > available[batch] for batch, count in counts.items()):
+            raise ValueError("retrieved batches exceed the eligible reference counts")
+        probabilities = np.asarray(list(counts.values()), dtype=float) / len(row)
+        entropy = -np.sum(probabilities * np.log2(probabilities))
+        scores.append(float(entropy / denominator) if denominator else 0.0)
+    return scores, _finite_mean(scores)
 
-    Args:
-        top_k_labels_batch (list of lists): List where each element is a list of top-K batch labels for a query.
 
-    Returns:
-        float: Average entropy across all queries in the batch.
-    """
-    entropy_per_query = []
-    total_entropy = 0
-    for batch_labels in top_k_labels_batch:
-        # Count the frequency of each batch label in the top-K results
-        label_counts = Counter(batch_labels)
-        total = sum(label_counts.values())
+def _corrected_results(queries, labels, batches, reference_labels, reference_batches, k, alpha):
+    queries, labels = _ranked(queries, labels, k)
+    _, batches = _ranked(queries, batches, k)
+    if labels.shape != batches.shape:
+        raise ValueError("retrieved labels and batches must have equal shape")
+    reference_labels = _reference(reference_labels, "reference_labels")
+    reference_batches = _reference(reference_batches, "reference_batches")
+    if len(reference_labels) != len(reference_batches):
+        raise ValueError("reference labels and batches must have equal length")
+    available = Counter(zip(reference_labels, reference_batches))
+    for row_labels, row_batches in zip(labels, batches):
+        counts = Counter(zip(row_labels, row_batches))
+        if any(count > available[pair] for pair, count in counts.items()):
+            raise ValueError("retrieved label/batch counts exceed the eligible reference pool; "
+                             "check the original reference metadata and index mapping")
+    # Avoid nanmean warnings for queries with no relevant reference cells.
+    import warnings
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", message="Mean of empty slice", category=RuntimeWarning)
+        return evaluate_ranked_results(
+            queries, labels, batches, reference_labels, reference_batches, k=k, alpha=alpha)
 
-        # Compute probabilities for each batch label
-        probabilities = [count / total for count in label_counts.values()]
 
-        # Compute entropy for this query
-        entropy = -sum(p * np.log2(p) for p in probabilities if p > 0)
-        total_entropy += entropy
-        entropy_per_query.append(entropy)
-
-    # Return the average entropy
-    return entropy_per_query, total_entropy / len(top_k_labels_batch)
-
-def compute_alpha_ndcg_batch(queries, top_k_labels_cell_type, top_k_labels_batch, alpha=0.5):
-    """
-    Computes the average α-NDCG for a batch of queries. Relevance is measured using cell type labels,
-    and diversity is encouraged using batch labels.
-
-    Args:
-        queries (list): List of query labels (size N).
-        top_k_labels_cell_type (list of lists): List where each element is a list of top-K predicted cell type labels.
-        top_k_labels_batch (list of lists): List where each element is a list of top-K batch labels.
-        alpha (float): Diversity parameter (default is 0.5).
-
-    Returns:
-        float: Average α-NDCG across all queries in the batch.
-    """
-    alpha_ndcg_per_query = [] 
-    total_alpha_ndcg = 0
-    for query_label, top_k_labels, batch_labels in zip(queries, top_k_labels_cell_type, top_k_labels_batch):
-        # Initialize variables for gain and seen batch labels
-        gain = 0
-        seen_batch_labels = Counter()
-
-        # Compute the gain (actual DCG)
-        for i, (cell_type_label, batch_label) in enumerate(zip(top_k_labels, batch_labels)):
-            # Relevance: Check if the predicted cell type label matches the query
-            if cell_type_label == query_label:
-                # Diversity: Encourage diverse batch labels
-                gain += (1 - alpha) ** seen_batch_labels[batch_label] / np.log2(i + 2)
-            # Track how many times each batch label has been seen (for diversity discounting)
-            seen_batch_labels[batch_label] += 1
-
-        # Compute the ideal DCG (IDCG) using both relevance and diversity
-        idcg = 0
-        ideal_seen_batch_labels = Counter()
-        for i, batch_label in enumerate(batch_labels):
-            # In the ideal ranking, we assume all cell type labels match the query
-            idcg += (1 - alpha) ** ideal_seen_batch_labels[batch_label] / np.log2(i + 2)
-            ideal_seen_batch_labels[batch_label] += 1
-
-        # Normalize by IDCG
-        alpha_ndcg = gain / idcg if idcg > 0 else 0
-        alpha_ndcg_per_query.append(alpha_ndcg)
-        total_alpha_ndcg += alpha_ndcg
-
-    # Return the average α-NDCG across all queries
-    return alpha_ndcg_per_query,total_alpha_ndcg / len(queries)
-
+def compute_alpha_ndcg_batch(queries, top_k_labels_cell_type, top_k_labels_batch,
+                             alpha=0.5, *, reference_labels=None,
+                             reference_batches=None, k=50):
+    """Reference-normalized alpha-NDCG; only correct cells receive novelty gain."""
+    result = _corrected_results(
+        queries, top_k_labels_cell_type, top_k_labels_batch,
+        reference_labels, reference_batches, k, alpha)
+    return result["alpha_ndcg_scores"].tolist(), result["alpha_ndcg_mean"]
 
 
 def compute_gini_index(scores):
@@ -270,7 +297,7 @@ def compute_cell_type_gini_index(cell_types, scores):
     
     return gini_index
 
-def compute_balanced_metrics(correct_labels, top_k_predictions, k=3):
+def compute_balanced_metrics(correct_labels, top_k_predictions, k=3, *, reference_labels=None):
     """
     Computes multiple metrics and their Gini indices, including cell-type-based Gini indices.
 
@@ -289,7 +316,7 @@ def compute_balanced_metrics(correct_labels, top_k_predictions, k=3):
         "Top-K Vote Accuracy": top_k_vote_accuracy(correct_labels, top_k_predictions, k)[0],
         "Top-K Average Accuracy": top_k_average_accuracy(correct_labels, top_k_predictions, k)[0],
         "Mean Average Precision (MAP)": mean_average_precision(correct_labels, top_k_predictions, k)[0],
-        "Normalized Discounted Cumulative Gain (nDCG)": ndcg(correct_labels, top_k_predictions, k)[0],
+        "Normalized Discounted Cumulative Gain (nDCG)": ndcg(correct_labels, top_k_predictions, k, reference_labels=reference_labels)[0],
         "Mean Reciprocal Rank (MRR)": mean_reciprocal_rank(correct_labels, top_k_predictions, k)[0]
     }
 
@@ -301,38 +328,282 @@ def compute_balanced_metrics(correct_labels, top_k_predictions, k=3):
         "Top-K Average Accuracy_celltype_gini": compute_cell_type_gini_index(correct_labels, metrics["Top-K Average Accuracy"]),
         "MAP_gini": compute_gini_index(metrics["Mean Average Precision (MAP)"]),
         "MAP_celltype_gini": compute_cell_type_gini_index(correct_labels, metrics["Mean Average Precision (MAP)"]),
-        "nDCG_gini": compute_gini_index(metrics["Normalized Discounted Cumulative Gain (nDCG)"]),
-        "nDCG_celltype_gini": compute_cell_type_gini_index(correct_labels, metrics["Normalized Discounted Cumulative Gain (nDCG)"]),
+        "nDCG_gini": _finite_gini(metrics["Normalized Discounted Cumulative Gain (nDCG)"]),
+        "nDCG_celltype_gini": _finite_gini(metrics["Normalized Discounted Cumulative Gain (nDCG)"], correct_labels),
         "MRR_gini": compute_gini_index(metrics["Mean Reciprocal Rank (MRR)"]),
         "MRR_celltype_gini": compute_cell_type_gini_index(correct_labels, metrics["Mean Reciprocal Rank (MRR)"])
     }
 
-def compute_batch_diversity_metrics(queries, top_k_labels_cell_type, top_k_labels_batch, alpha=0.5):
-    """
-    Computes Entropy and α-NDCG for a batch of queries.
-
-    Args:
-        queries (list): List of query labels (size N).
-        top_k_labels_cell_type (list of lists): List of top-K predicted cell type labels for each query.
-        top_k_labels_batch (list of lists): List of top-K batch labels for each query.
-        alpha (float): Diversity parameter for α-NDCG (default is 0.5).
-
-    Returns:
-        dict: A dictionary containing the average Entropy and α-NDCG for the batch.
-    """
-    # Compute Entropy (measures diversity using batch labels)
-    entropy, average_entropy = compute_entropy_batch(top_k_labels_batch)
-
-    # Compute α-NDCG (measures relevance using cell type labels and diversity using batch labels)
-    alpha_ndcg, average_alpha_ndcg = compute_alpha_ndcg_batch(queries, top_k_labels_cell_type, top_k_labels_batch, alpha)
-
-    # Return results as a dictionary
+def compute_batch_diversity_metrics(queries, top_k_labels_cell_type, top_k_labels_batch,
+                                    alpha=0.5, *, reference_labels=None,
+                                    reference_batches=None, k=50):
+    """Corrected diversity metrics. 'Average Entropy' now means normalized entropy."""
+    result = _corrected_results(
+        queries, top_k_labels_cell_type, top_k_labels_batch,
+        reference_labels, reference_batches, k, alpha)
+    entropy = result["normalized_entropy_scores"]
+    alpha_ndcg = result["alpha_ndcg_scores"]
     return {
-        "Average Entropy": average_entropy,
-        "Average α-NDCG": average_alpha_ndcg,
-        "Entropy_gini":compute_gini_index(entropy),
-        "α-NDCG_gini":compute_gini_index(alpha_ndcg),
-        "Entropy_cell_type_gini":compute_cell_type_gini_index(queries,entropy),
-        "α-NDCG_cell_type_gini":compute_cell_type_gini_index(queries,alpha_ndcg),
+        "Average Entropy": result["normalized_entropy_mean"],
+        "Average α-NDCG": result["alpha_ndcg_mean"],
+        "Entropy_gini": compute_gini_index(entropy),
+        "α-NDCG_gini": _finite_gini(alpha_ndcg),
+        "Entropy_cell_type_gini": compute_cell_type_gini_index(queries, entropy),
+        "α-NDCG_cell_type_gini": _finite_gini(alpha_ndcg, queries),
+        "nDCG_valid_fraction": result["ndcg_valid_fraction"],
+        "α-NDCG_valid_fraction": result["alpha_ndcg_valid_fraction"],
+    }
+# ---------------------------------------------------------------------------
+# Corrected reference-pool metrics
+# ---------------------------------------------------------------------------
+# These functions are kept in this module so the public package has one
+# numerical implementation.  They are also exposed for scalar/unit testing.
+def _validate_alpha(alpha):
+    if not np.isfinite(alpha) or not 0.0 <= alpha < 1.0:
+        raise ValueError("alpha must be finite and in [0, 1)")
 
+
+def normalized_entropy_at_k(retrieved_batches, reference_batches, k=50):
+    """Compute batch-label entropy@k normalized by log2(reference batches)."""
+    if k < 0:
+        raise ValueError("k must be non-negative")
+    retrieved_batches = np.asarray(retrieved_batches)[:k]
+    reference_batches = np.asarray(reference_batches)
+    if k == 0 or len(retrieved_batches) == 0:
+        return 0.0
+
+    batch_count = len(np.unique(reference_batches))
+    if batch_count <= 1:
+        return 0.0
+
+    counts = Counter(retrieved_batches)
+    total = float(len(retrieved_batches))
+    entropy = -sum(
+        (count / total) * np.log2(count / total)
+        for count in counts.values()
+        if count > 0
+    )
+    score = entropy / np.log2(batch_count)
+    if score < -1e-10 or score > 1.0 + 1e-10:
+        raise RuntimeError("normalized entropy outside [0, 1]: {}".format(score))
+    return float(np.clip(score, 0.0, 1.0))
+
+
+def ndcg_at_k(query_label, retrieved_labels, reference_labels, k=50):
+    """Compute binary-relevance, reference-pool normalized NDCG@k."""
+    if k < 0:
+        raise ValueError("k must be non-negative")
+
+    retrieved_labels = np.asarray(retrieved_labels)[:k]
+    reference_labels = np.asarray(reference_labels)
+    if k == 0:
+        return 0.0
+
+    relevance = (retrieved_labels == query_label).astype(np.float64)
+    ranks = np.arange(1, len(relevance) + 1, dtype=np.float64)
+    dcg = np.sum(relevance / np.log2(ranks + 1.0))
+
+    relevant_count = int(np.sum(reference_labels == query_label))
+    ideal_length = min(k, relevant_count)
+    if ideal_length == 0:
+        return np.nan
+
+    ideal_ranks = np.arange(1, ideal_length + 1, dtype=np.float64)
+    idcg = np.sum(1.0 / np.log2(ideal_ranks + 1.0))
+    return float(dcg / idcg)
+
+
+def _alpha_dcg(query_label, retrieved_labels, retrieved_batches, k, alpha):
+    _validate_alpha(alpha)
+    retrieved_labels = np.asarray(retrieved_labels)[:k]
+    retrieved_batches = np.asarray(retrieved_batches)[:k]
+    if len(retrieved_labels) != len(retrieved_batches):
+        raise ValueError("retrieved labels and batches must have equal length")
+
+    seen_relevant_batches = Counter()
+    score = 0.0
+    for rank, (label, batch) in enumerate(
+        zip(retrieved_labels, retrieved_batches), start=1
+    ):
+        if label != query_label:
+            continue
+        novelty = (1.0 - alpha) ** seen_relevant_batches[batch]
+        score += novelty / np.log2(rank + 1.0)
+        # Incorrect cells never affect the redundancy count.
+        seen_relevant_batches[batch] += 1
+    return float(score)
+
+
+def _ideal_alpha_dcg(query_label, reference_labels, reference_batches, k, alpha):
+    """Greedy alpha-IDCG from the complete reference pool."""
+    _validate_alpha(alpha)
+    reference_labels = np.asarray(reference_labels)
+    reference_batches = np.asarray(reference_batches)
+    if len(reference_labels) != len(reference_batches):
+        raise ValueError("reference labels and batches must have equal length")
+
+    available = Counter(reference_batches[reference_labels == query_label])
+    if not available:
+        return np.nan
+
+    selected = Counter()
+    score = 0.0
+    for rank in range(1, k + 1):
+        candidates = [batch for batch, count in available.items() if count > 0]
+        if not candidates:
+            break
+        # Maximizing (1-alpha)^selected is equivalent to selecting the least
+        # represented available batch; sorting makes ties deterministic.
+        batch = min(candidates, key=lambda value: (selected[value], str(value)))
+        score += (1.0 - alpha) ** selected[batch] / np.log2(rank + 1.0)
+        selected[batch] += 1
+        available[batch] -= 1
+    return float(score)
+
+
+def _ideal_alpha_dcg_from_counts(available_counts, k, alpha):
+    """Compute alpha-IDCG from precomputed relevant-cell batch counts."""
+    _validate_alpha(alpha)
+    available = Counter(available_counts)
+    if not available:
+        return np.nan
+    selected = Counter()
+    score = 0.0
+    for rank in range(1, k + 1):
+        candidates = [batch for batch, count in available.items() if count > 0]
+        if not candidates:
+            break
+        batch = min(candidates, key=lambda value: (selected[value], str(value)))
+        score += (1.0 - alpha) ** selected[batch] / np.log2(rank + 1.0)
+        selected[batch] += 1
+        available[batch] -= 1
+    return float(score)
+
+
+def alpha_ndcg_at_k(
+    query_label,
+    retrieved_labels,
+    retrieved_batches,
+    reference_labels,
+    reference_batches,
+    k=50,
+    alpha=0.5,
+):
+    """Compute alpha-NDCG@k with batch novelty and reference-pool IDCG."""
+    if k < 0:
+        raise ValueError("k must be non-negative")
+    dcg = _alpha_dcg(query_label, retrieved_labels, retrieved_batches, k, alpha)
+    idcg = _ideal_alpha_dcg(
+        query_label, reference_labels, reference_batches, k, alpha
+    )
+    if np.isnan(idcg) or idcg <= 0.0:
+        return np.nan
+    score = dcg / idcg
+    if score < -1e-10 or score > 1.0 + 1e-10:
+        raise RuntimeError("alpha-NDCG outside [0, 1]: {}".format(score))
+    return float(np.clip(score, 0.0, 1.0))
+
+
+def evaluate_ranked_results(
+    query_labels,
+    retrieved_labels,
+    retrieved_batches,
+    reference_labels,
+    reference_batches,
+    k=50,
+    alpha=0.5,
+):
+    """Return per-query and mean corrected entropy/NDCG/alpha-NDCG."""
+    query_labels = np.asarray(query_labels)
+    retrieved_labels = np.asarray(retrieved_labels)
+    retrieved_batches = np.asarray(retrieved_batches)
+    if retrieved_labels.shape != retrieved_batches.shape:
+        raise ValueError("retrieved labels and batches must have equal shape")
+    if len(query_labels) != len(retrieved_labels):
+        raise ValueError("query labels and ranked results must have equal length")
+
+    _validate_alpha(alpha)
+    reference_labels = np.asarray(reference_labels)
+    reference_batches = np.asarray(reference_batches)
+    if len(reference_labels) != len(reference_batches):
+        raise ValueError("reference labels and batches must have equal length")
+
+    reference_label_counts = Counter(reference_labels)
+    reference_batch_counts = defaultdict(Counter)
+    for label, batch in zip(reference_labels, reference_batches):
+        reference_batch_counts[label][batch] += 1
+
+    ndcg_idcg = {}
+    alpha_idcg = {}
+    for label in np.unique(query_labels):
+        ideal_length = min(k, reference_label_counts[label])
+        if ideal_length:
+            ranks = np.arange(1, ideal_length + 1, dtype=np.float64)
+            ndcg_idcg[label] = float(np.sum(1.0 / np.log2(ranks + 1.0)))
+        else:
+            ndcg_idcg[label] = np.nan
+        alpha_idcg[label] = _ideal_alpha_dcg_from_counts(
+            reference_batch_counts[label], k, alpha
+        )
+
+    discounts = 1.0 / np.log2(np.arange(1, k + 1, dtype=np.float64) + 1.0)
+    batch_count = len(np.unique(reference_batches))
+    entropy_denominator = np.log2(batch_count) if batch_count > 1 else None
+    entropy_scores = []
+    ndcg_scores = []
+    alpha_scores = []
+    for query_label, labels, batches in zip(
+        query_labels, retrieved_labels, retrieved_batches
+    ):
+        labels = np.asarray(labels)[:k]
+        batches = np.asarray(batches)[:k]
+        relevant = labels == query_label
+
+        if entropy_denominator is None or len(batches) == 0:
+            entropy_scores.append(0.0)
+        else:
+            counts = Counter(batches)
+            total = float(len(batches))
+            entropy = -sum(
+                (count / total) * np.log2(count / total)
+                for count in counts.values()
+                if count > 0
+            )
+            entropy_score = entropy / entropy_denominator
+            if entropy_score < -1e-10 or entropy_score > 1.0 + 1e-10:
+                raise RuntimeError(
+                    "normalized entropy outside [0, 1]: {}".format(entropy_score)
+                )
+            entropy_scores.append(float(np.clip(entropy_score, 0.0, 1.0)))
+
+        idcg = ndcg_idcg[query_label]
+        if np.isnan(idcg):
+            ndcg_scores.append(np.nan)
+        else:
+            ndcg_scores.append(float(np.sum(relevant * discounts[:len(labels)]) / idcg))
+
+        ideal_alpha = alpha_idcg[query_label]
+        if np.isnan(ideal_alpha) or ideal_alpha <= 0.0:
+            alpha_scores.append(np.nan)
+        else:
+            alpha_dcg = _alpha_dcg(
+                query_label, labels, batches, k, alpha
+            )
+            score = alpha_dcg / ideal_alpha
+            if score < -1e-10 or score > 1.0 + 1e-10:
+                raise RuntimeError("alpha-NDCG outside [0, 1]: {}".format(score))
+            alpha_scores.append(float(np.clip(score, 0.0, 1.0)))
+
+    entropy_scores = np.asarray(entropy_scores, dtype=float)
+    ndcg_scores = np.asarray(ndcg_scores, dtype=float)
+    alpha_scores = np.asarray(alpha_scores, dtype=float)
+    return {
+        "normalized_entropy_scores": entropy_scores,
+        "ndcg_scores": ndcg_scores,
+        "alpha_ndcg_scores": alpha_scores,
+        "normalized_entropy_mean": float(np.mean(entropy_scores)),
+        "ndcg_mean": float(np.nanmean(ndcg_scores)),
+        "alpha_ndcg_mean": float(np.nanmean(alpha_scores)),
+        "ndcg_valid_fraction": float(np.mean(~np.isnan(ndcg_scores))),
+        "alpha_ndcg_valid_fraction": float(np.mean(~np.isnan(alpha_scores))),
     }

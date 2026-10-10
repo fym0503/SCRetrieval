@@ -1,5 +1,7 @@
+from pathlib import Path
 import pandas as pd
-from metrics import compute_cell_type_matching_metrics,compute_batch_diversity_metrics,compute_balanced_metrics
+Path('./metric').mkdir(exist_ok=True)
+from metrics import compute_cell_type_matching_metrics,compute_batch_diversity_metrics,compute_balanced_metrics,load_reference_metadata
 models = ["cellfishing","pca","scvi","linearscvi","cellblast","scfoundation","scgpt","scimilarity","uce","geneformer","scmulan","cellplm","nicheformer"]
 all_result_df = dict()
 for model in models:
@@ -9,9 +11,13 @@ for model in models:
         if model == "cellfishing":
             celltype = pd.read_csv(f'../data/Pancreas/{model}_{i}_method/celltype.csv')    
             method = pd.read_csv(f'../data/Pancreas/{model}_{i}_method/tech.csv')
+            reference_labels, reference_batches = load_reference_metadata(
+                Path(f'../data/Pancreas/{model}_{i}_method/tech.csv').with_name('reference_obs.csv'), 'celltype', 'tech')
         else:
             celltype = pd.read_csv(f'../data/Pancreas/{model}_{i}_method_l2_norm/celltype.csv')    
             method = pd.read_csv(f'../data/Pancreas/{model}_{i}_method_l2_norm/tech.csv')
+            reference_labels, reference_batches = load_reference_metadata(
+                Path(f'../data/Pancreas/{model}_{i}_method_l2_norm/tech.csv').with_name('reference_obs.csv'), 'celltype', 'tech')
 
         query = celltype['Query']
         query_method = method['Query']
@@ -23,9 +29,9 @@ for model in models:
             del method['Unnamed: 0']
         
         for k in [50]:
-            ct_metrics = compute_cell_type_matching_metrics(list(query), celltype.values[:,0:k],k)
-            batch_metrics = compute_batch_diversity_metrics(list(query), celltype.values[:,0:k], method.values[:,0:k],k)
-            balanced_metrics = compute_balanced_metrics(list(query), celltype.values[:,0:k],k)
+            ct_metrics = compute_cell_type_matching_metrics(list(query), celltype.values[:,0:k],k, reference_labels=reference_labels)
+            batch_metrics = compute_batch_diversity_metrics(list(query), celltype.values[:,0:k], method.values[:,0:k], alpha=0.5, k=k, reference_labels=reference_labels, reference_batches=reference_batches)
+            balanced_metrics = compute_balanced_metrics(list(query), celltype.values[:,0:k],k, reference_labels=reference_labels)
             combined_metrics = {**ct_metrics, **batch_metrics, **balanced_metrics}
             method_df['method_' + str(i) + '_top_' + str(k)] = combined_metrics
     method_df_mean = pd.DataFrame(method_df).mean(axis=1)
