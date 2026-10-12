@@ -1,7 +1,7 @@
 celltypes=(
   "DC_c3-LAMP3"
   "Macro_c3-EREG"
-  "Macro_c4-DNAJb1"
+  "Macro_c4-DNAJB1"
   "Neu_c4-RSAD2"
   "Neu_c6-FGF23"
 )
