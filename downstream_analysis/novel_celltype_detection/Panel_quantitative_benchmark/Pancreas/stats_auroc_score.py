@@ -58,13 +58,13 @@ for platform in platforms:
             seen = np.mean(np.load(os.path.join(scimilarity_path,f"{model}_{platform}_{args.cell_type}","seen_cosine_similarity.npy"))[:,0:int(args.number)],axis=1)
             unseen = np.mean(np.load(os.path.join(scimilarity_path,f"{model}_{platform}_{args.cell_type}","unseen_cosine_similarity.npy"))[:,0:int(args.number)],axis=1)
             
-            seen_flat = seen.flatten()
-            unseen_flat = unseen.flatten()
-            
             if model == 'cellfishing':
                 seen = 1 / seen
                 unseen = 1 / unseen
                 
+            seen_flat = seen.flatten()
+            unseen_flat = unseen.flatten()
+            
             y_true = np.append(np.zeros(len(unseen_flat)),np.ones(len(seen_flat)))
             y_score = np.append(unseen_flat,seen_flat)
             y_score_all.append(y_score)
